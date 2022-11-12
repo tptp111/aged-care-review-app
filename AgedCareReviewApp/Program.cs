@@ -8,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ApplicationContext>(options =>
 {
-    options.UseNpgsql(builder.Configuration.GetConnectionString("DBConnection"));
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DBConnectionLocal"));
 });
 
 var app = builder.Build();
