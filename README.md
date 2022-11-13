@@ -23,6 +23,25 @@ The local database instance is used for development. Follow these steps to set u
 Once the local db is set up, run ``dotnet ef database update`` from within the .NET project. This should populate your local database with the schema generated from the previous migrations.  
 If you don't have entity framework installed run: `dotnet tool install --global dotnet-ef`
 
+### Create App Settings Development File
+Create an appsettings.development.json file in the project directory with the following:
+```
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft": "Warning",
+      "Microsoft.AspNetCore.SpaProxy": "Information",
+      "Microsoft.Hosting.Lifetime": "Information"
+    }
+  },
+  "ConnectionStrings": {
+    "DBConnectionAzure":"",
+    "DBConnectionAzureTest":"",
+    "DBConnectionLocal":"Host=localhost:5432;Username=;Password=;Database=aged-care-review"
+  }
+}
+```
 ## Starting the App
 The app can be started by doing any one of the three options below:
 - Hitting run in IDE (run configurations should already be set up)
