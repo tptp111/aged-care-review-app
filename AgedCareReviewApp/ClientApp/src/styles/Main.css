@@ -1,0 +1,48 @@
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+
+code {
+  color: #E01A76;
+}
+
+:root {
+    --primary-color: #3C5A9A;
+    --primary-dark-color: #1D2538;
+    --secondary-color: #78A6C8;
+    --accent-color: #EBA22C;
+    --off-white-color: #E9EEF4;
+    --red-color: #EB4335;
+    --white-color: #FFFFFF;
+    --black-color: #000000;
+}
+
+.b {
+    text-transform: uppercase;
+    transition:cubic-bezier(0.6, -0.28, 0.735, 0.045);
+    padding: 20px 40px;
+    margin: 10px 10px;
+    border-radius: 10px;
+    border-width: 0;
+}
+
+.b:hover {
+    filter:brightness(0.85);
+}
+
+.b-lg {
+    padding: 20px 40px;
+    border-radius: 20px;
+    font-size: 30px;
+}
+
+.b-primary {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+.b-accent {
+    background-color: var(--accent-color);
+    color: var(--white-color);
+}

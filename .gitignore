@@ -254,3 +254,4 @@ yarn-debug.log*
 yarn-error.log*
 
 AgedCareReviewApp/appsettings.Development.json
+.idea/.idea.AgedCareReviewApp/.idea/dataSources.xml
