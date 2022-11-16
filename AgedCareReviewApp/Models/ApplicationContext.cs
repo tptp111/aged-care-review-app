@@ -10,4 +10,10 @@ public class ApplicationContext : DbContext
     }
     
     public DbSet<WeatherForecast> WeatherForecasts { get; set; }
+    public DbSet<Facility> Facilities { get; set; }
+    public DbSet<Review> Reviews { get; set; }
+    public DbSet<Suburb> Suburbs { get; set; }
+    public DbSet<User> Users { get; set; }
+    public DbSet<GovernmentValidation> GovernmentValidations { get; set; }
+
 }

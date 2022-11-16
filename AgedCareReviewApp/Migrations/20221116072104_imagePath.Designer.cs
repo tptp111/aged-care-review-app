@@ -2,6 +2,7 @@
 using AgedCareReviewApp.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -10,9 +11,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace AgedCareReviewApp.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20221116072104_imagePath")]
+    partial class imagePath
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -70,35 +73,6 @@ namespace AgedCareReviewApp.Migrations
                     b.ToTable("Facilities");
                 });
 
-            modelBuilder.Entity("AgedCareReviewApp.Models.GovernmentValidation", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("CurrentFacility")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("LastName")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("MedicareCardNumber")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("GovernmentValidations");
-                });
-
             modelBuilder.Entity("AgedCareReviewApp.Models.Review", b =>
                 {
                     b.Property<int>("Id")
@@ -147,8 +121,9 @@ namespace AgedCareReviewApp.Migrations
                     b.Property<int>("StaffScore")
                         .HasColumnType("integer");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("integer");
+                    b.Property<string>("UserEmail")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
@@ -199,11 +174,18 @@ namespace AgedCareReviewApp.Migrations
                     b.Property<bool>("IsResident")
                         .HasColumnType("boolean");
 
+                    b.Property<bool>("IsValidated")
+                        .HasColumnType("boolean");
+
                     b.Property<string>("LastName")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("MedicareCardNumber")
+                    b.Property<string>("ValidationCode")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("ValidationType")
                         .IsRequired()
                         .HasColumnType("text");
 
