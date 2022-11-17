@@ -20,9 +20,9 @@ html {
 .navbar-expand-sm,
 .navbar-toggleable-sm {
     background-color: var(--primary-color);
-    height: 100px;
+    padding: 0 20px;
 }
 
 .logo {
-    max-height: 80px;
+    max-height: 50px;
 }

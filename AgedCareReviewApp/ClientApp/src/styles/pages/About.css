@@ -1,0 +1,33 @@
+.about-text {
+    padding: 50px 100px;
+}
+
+.about-text-box {
+    margin: 15px 0;
+}
+
+.about-left-column {
+    margin: auto;
+}
+
+@media (max-width: 767px) {
+    .about-text {
+        padding: 25px 50px;
+    }
+}
+
+@media (max-width: 767px) {
+    .about-text {
+        padding: 15px 50px;
+    }
+}
+
+.about-img {
+    max-width:100%;
+    margin: auto;
+}
+
+.about-right-column {
+    display: flex;
+    flex-direction: column;
+}

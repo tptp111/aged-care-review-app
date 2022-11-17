@@ -1,12 +1,3 @@
-/* Provide sufficient contrast against white background */
-a {
-  color: #0366d6;
-}
-
-code {
-  color: #E01A76;
-}
-
 :root {
     --primary-color: #3C5A9A;
     --primary-dark-color: #1D2538;
@@ -18,6 +9,26 @@ code {
     --black-color: #000000;
 }
 
+html,
+body,
+#root,
+.layout {
+    height: 100%;
+}
+
+.layout {
+    display:flex;
+    flex-direction: column;
+}
+
+@media (min-width: 1400px) {
+    .container {
+        max-width: 100%;
+        padding: 0;
+    }
+}
+
+/* Buttons */
 .b {
     text-transform: uppercase;
     transition:cubic-bezier(0.6, -0.28, 0.735, 0.045);
