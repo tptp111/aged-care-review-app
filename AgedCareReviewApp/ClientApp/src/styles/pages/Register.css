@@ -1,0 +1,23 @@
+.elderlyImage3-img-register {
+    max-width:100%;
+    object-position: 0px -15px;
+}
+
+.left-column-register {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.register-h1 {
+    text-align: left;
+    color: #0d0d66;
+}
+
+#register-input {
+   width: 90%;
+}
+
+#register-checkbox {
+    width: 5%;
+}

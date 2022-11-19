@@ -1,0 +1,29 @@
+.elderlyImage2-img-SOR {
+    max-width:100%;
+    justify-items: start;
+    align-items: end;
+    /*object-position: 0px 50px; */
+}
+
+.left-column-SOR {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.right-column-SOR {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 100px;
+}
+
+#h1-SOR {
+    text-align: center;
+    color: #0d0d66;
+}
+
+#h3-SOR{
+    text-align: left;
+}
+

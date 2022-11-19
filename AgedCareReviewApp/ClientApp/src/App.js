@@ -4,6 +4,7 @@ import AppRoutes from './AppRoutes';
 import { Layout } from './components/Layout';
 import './styles/Main.css';
 
+
 export default class App extends Component {
   static displayName = App.name;
 

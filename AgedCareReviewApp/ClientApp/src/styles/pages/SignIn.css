@@ -1,0 +1,35 @@
+.elderlyImage2-img-signIn {
+    max-width:100%;
+    object-position: 0px -15px;
+}
+
+.left-column-signIn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.right-column-signIn {
+    display: flex;
+    flex-direction: column;
+    /*align-items: left; */
+    row-gap: 50px;
+}
+
+#Sign-in-h1 {
+    text-align: left;
+    color: #0d0d66; 
+}
+
+#Sign-in-h3 {
+    text-align: left;
+}
+
+#signin-p {
+    color: #103791
+}
+
+#signIn-input {
+    width: 80%;
+}
+
