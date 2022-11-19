@@ -1,6 +1,5 @@
 ﻿using AgedCareReviewApp.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace AgedCareReviewApp.Controllers;
 
@@ -29,5 +28,10 @@ public class WeatherForecastController : ControllerBase
     {
         return _dbContext.WeatherForecasts.ToList();
     }
-    
+
+    [HttpPost]
+    public void Post(WeatherForecast weather)
+    {
+        Console.Write(weather.Summary);
+    }
 }

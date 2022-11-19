@@ -7,6 +7,7 @@ import { ForgotPassword } from "./pages/ForgotPassword";
 import { Register } from "./pages/Register";
 import { TermsOfUse } from "./pages/TermsOfUse";
 import { About } from "./pages/About";
+import { FormTest } from "./pages/FormTest";
 
 const AppRoutes = [
   {
@@ -40,6 +41,10 @@ const AppRoutes = [
   {
     path: '/about',
     element: <About />
+  },
+  {
+    path: '/form-test',
+    element: <FormTest />
   },
   {
     path: '/fetch-data',
