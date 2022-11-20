@@ -1,6 +1,8 @@
 import { Counter } from "./pages/Counter";
 import { FetchData } from "./pages/FetchData";
 import { Home } from "./pages/Home";
+import {FacilitySearchResults} from "./pages/FacilitySearchResults";
+
 import { SignInOrRegister } from "./pages/SignInOrRegister";
 import { SignIn } from "./pages/SignIn";
 import { ForgotPassword } from "./pages/ForgotPassword";
@@ -49,6 +51,10 @@ const AppRoutes = [
   {
     path: '/fetch-data',
     element: <FetchData />
+  },
+  {
+    path: '/facility-search-results',
+    element: <FacilitySearchResults />
   }
 ];
 

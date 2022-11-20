@@ -5,20 +5,34 @@
     <projectFile profileName="IIS Express">AgedCareReviewApp.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2375a300-a525-46d8-869c-0dbeb8359006" name="Changes" comment="" />
+    <list default="true" id="2375a300-a525-46d8-869c-0dbeb8359006" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AgedCareReviewApp.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AgedCareReviewApp.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientApp/public/images/bg-image.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientApp/public/images/testimage.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/FacilitySearchResultController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/FacilitySearchResultController.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Models/Facility.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Models/Review.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Models/Suburb.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Models/User.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../Views/FacilitySearchResultView.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../Views/SalTest.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ClientApp/package-lock.json" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/4fc7e7141e7fcbc46ed24319eed11107796965acd12bd303f86ea69839a734/NpgsqlCommand.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bebd253e21dcf766929bfdfd74615bfe46e6e1693b289273dbdb82152893/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -79,6 +93,9 @@
       <option name="presentableId" value="Default" />
       <updated>1668412424911</updated>
       <workItem from="1668412430469" duration="8380000" />
+      <workItem from="1668682603235" duration="8154000" />
+      <workItem from="1668880485311" duration="10555000" />
+      <workItem from="1668915150153" duration="7070000" />
     </task>
     <servers />
   </component>
@@ -97,5 +114,8 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
 </project>
