@@ -7,6 +7,7 @@ import { SignInOrRegister } from "./pages/SignInOrRegister";
 import { SignIn } from "./pages/SignIn";
 import { ForgotPassword } from "./pages/ForgotPassword";
 import { Register } from "./pages/Register";
+import { Search } from "./pages/Search";
 import { TermsOfUse } from "./pages/TermsOfUse";
 import { About } from "./pages/About";
 import { FormTest } from "./pages/FormTest";
@@ -51,6 +52,10 @@ const AppRoutes = [
   {
     path: '/fetch-data',
     element: <FetchData />
+  },
+  {
+    path: '/search',
+    element: <Search />
   },
   {
     path: '/facility-search-results',
