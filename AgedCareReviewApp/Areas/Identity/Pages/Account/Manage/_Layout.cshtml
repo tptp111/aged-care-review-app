@@ -1,0 +1,47 @@
+﻿@{
+    if (ViewData.TryGetValue("ParentLayout", out var parentLayout))
+    {
+        Layout = (string)parentLayout;
+    }
+    else
+    {
+        Layout = "_Layout.cshtml";
+    }
+}
+
+<style>
+    .manage {
+       padding: 0 25px;
+    }
+    @@media (min-width: 1400px) {
+        .manage {
+           padding: 0 200px;
+        }
+    }
+    
+    .manage-body {
+        margin: auto;
+    }
+</style>
+
+<div class="manage">
+    <h1>Manage your account</h1>
+    <div>
+        <h3>Change your account settings</h3>
+        <hr />
+        <div class="row">
+            <div class="col-md-4">
+                <partial name="_ManageNav" />
+            </div>
+            <div class="col-md-8 manage-body">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+@section Scripts {
+    @RenderSection("Scripts", required: false)
+}

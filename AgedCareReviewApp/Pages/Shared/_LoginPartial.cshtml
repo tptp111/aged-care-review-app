@@ -1,0 +1,51 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using AgedCareReviewApp.Models
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+@{
+    var request = HttpContextAccessor.HttpContext.Request;
+    var host = request.Host.ToUriComponent();
+    var pathBase = request.PathBase.ToUriComponent();
+    var baseUrl =  $"{request.Scheme}://{host}{pathBase}";
+}
+
+@{
+    string? returnUrl = null;
+    var query = ViewContext.HttpContext.Request.Query;
+    if (query.ContainsKey("returnUrl"))
+    {
+        returnUrl = query["returnUrl"];
+    }
+}
+
+<ul class="navbar-nav">
+    <li class="nav-item">
+        <a class="nav-link text-light" href="@(baseUrl)/">HOME</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-light" href="@(baseUrl)/about">ABOUT</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-light" href="@(baseUrl)/counter">COUNTER</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-light" href="@(baseUrl)/fetch-data">FETCH DATA</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-light" href="@(baseUrl)/form-test">FORM TEST</a>
+    </li>
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <li class="nav-item">
+            <a class="nav-link text-light" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">@User.Identity!.Name</a>
+        </li>
+        <li class="nav-item">
+            <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="/">
+                <button type="submit" class="nav-link btn btn-link text-light">LOG OUT</button>
+            </form>
+        </li>
+    }
+</ul>

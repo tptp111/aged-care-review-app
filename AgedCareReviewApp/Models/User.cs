@@ -1,19 +1,13 @@
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Identity;
 
 namespace AgedCareReviewApp.Models;
 
-public class User
+public class User : IdentityUser
 {
-    public int Id { get; set; }
-    [Required]
-    public string Email { get; set; }
-    [Required]
-    public string FirstName { get; set; }
-    [Required]
-    public string LastName { get; set; }
+    public string FirstName { get; set; } = "";
+    public string LastName { get; set; } = "";
     public bool IsResident { get; set; } = true;
-    [Required]
-    public string MedicareCardNumber { get; set; }
-    [Required]
-    public string FacilityName  { get; set; }
+    public string MedicareNumber { get; set; } = "";
+    public string FacilityName { get; set; } = "";
 }

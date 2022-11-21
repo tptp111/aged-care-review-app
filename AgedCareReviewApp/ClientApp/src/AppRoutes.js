@@ -1,13 +1,10 @@
+import ApiAuthorzationRoutes from './components/api-authorization/ApiAuthorizationRoutes';
 import { Counter } from "./pages/Counter";
 import { FetchData } from "./pages/FetchData";
 import { Home } from "./pages/Home";
-import {FacilitySearchResults} from "./pages/FacilitySearchResults";
-
-import { SignInOrRegister } from "./pages/SignInOrRegister";
-import { SignIn } from "./pages/SignIn";
-import { ForgotPassword } from "./pages/ForgotPassword";
-import { Register } from "./pages/Register";
+import { FacilitySearchResults } from "./pages/FacilitySearchResults";
 import { Search } from "./pages/Search";
+import { SignInOrRegister } from "./pages/SignInOrRegister";
 import { TermsOfUse } from "./pages/TermsOfUse";
 import { About } from "./pages/About";
 import { FormTest } from "./pages/FormTest";
@@ -20,18 +17,6 @@ const AppRoutes = [
   {
     path: '/SignInOrRegister',
     element: <SignInOrRegister />
-  },
-  {
-    path: '/SignIn',
-    element: <SignIn />
-  },
-  {
-    path: '/ForgotPassword',
-    element: <ForgotPassword />
-  },
-  {
-    path: '/Register',
-    element: <Register />
   },
   {
     path: '/TermsOfUse',
@@ -60,7 +45,8 @@ const AppRoutes = [
   {
     path: '/facility-search-results',
     element: <FacilitySearchResults />
-  }
+  },
+    ...ApiAuthorzationRoutes
 ];
 
 export default AppRoutes;

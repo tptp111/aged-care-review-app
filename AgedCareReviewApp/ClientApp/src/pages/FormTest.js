@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import authService from '../components/api-authorization/AuthorizeService'
 import '../styles/pages/About.css';
 
 export class FormTest extends Component {
@@ -14,7 +15,8 @@ export class FormTest extends Component {
     this.setState({value: event.target.value});
   }
 
-  handleSubmit(event) {
+  async handleSubmit(event) {
+    const token = await authService.getAccessToken();
     alert('A name was submitted: ' + this.state.value);
 
     let weather = {
@@ -23,7 +25,10 @@ export class FormTest extends Component {
 
     fetch('WeatherForecast', {
       method: 'POST',
-      headers: {'Content-type':'application/json'},
+      headers: !token ? {} : {
+         'Content-type':'application/json',
+         'Authorization': `Bearer ${token}`
+        },
       body: JSON.stringify(weather)
     });
     event.preventDefault();
@@ -31,13 +36,17 @@ export class FormTest extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          Name:
-          <input type="text" value={this.state.value} onChange={this.handleChange} />
-        </label>
-        <input type="submit" value="Submit" />
-      </form>
+      <div>
+        <h1>Form Submission Example Page</h1>
+        <p>This page demonstrates form submission to the back end. For the submission to work, the user must be logged in, otherwise the post request authorisation will fail.</p>
+        <form onSubmit={this.handleSubmit}>
+          <label>
+            Message:
+            <input type="text" value={this.state.value} onChange={this.handleChange} />
+          </label>
+          <input type="submit" value="Submit" />
+        </form>
+      </div>
     );
   }
 }

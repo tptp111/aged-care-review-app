@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { LoginMenu } from './api-authorization/LoginMenu';
 import {Collapse, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink} from 'reactstrap';
 import { Link } from 'react-router-dom';
 import '../styles/components/NavMenu.css';
@@ -52,6 +53,8 @@ export class NavMenu extends Component {
               <NavItem>
                 <NavLink tag={Link} className="text-light" to="/facility-search-results">SEARCH RESULTS</NavLink>
               </NavItem>
+              <LoginMenu>
+              </LoginMenu>
             </ul>
           </Collapse>
         </Navbar>

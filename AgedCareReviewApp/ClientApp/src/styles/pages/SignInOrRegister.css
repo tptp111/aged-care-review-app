@@ -2,7 +2,7 @@
     max-width:100%;
     justify-items: start;
     align-items: end;
-    /*object-position: 0px 50px; */
+    margin-right: auto;
 }
 
 .left-column-SOR {
@@ -15,7 +15,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    row-gap: 100px;
+    row-gap: 40px;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 #h1-SOR {
