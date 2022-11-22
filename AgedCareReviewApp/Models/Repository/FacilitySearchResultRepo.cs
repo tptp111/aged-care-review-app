@@ -9,7 +9,7 @@ public static class FacilitySearchResultRepo
     
     public static List<FacilitySearchResultView> GetFacilitySearchResults()
     {
-        string query = @"SELECT * FROM public.""FacilitySearchResultView"";";
+        string query = @"SELECT * FROM public.""FacilitySearchResultView"" order by ""AverageOverallScore"" desc;";
 
         List<FacilitySearchResultView> facilitySearchResultViewList = new List<FacilitySearchResultView>();
         try

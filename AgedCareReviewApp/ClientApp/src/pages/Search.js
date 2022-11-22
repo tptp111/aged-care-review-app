@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import '../styles/pages/Search.css';
-
+import { Link } from 'react-router-dom';
 
 export function Search() {
     const inputRef = useRef(null);
@@ -59,14 +59,15 @@ export function Search() {
                                 />
                             )}
                         />
+                        <Link to="/facility-search-results">
                         <button
                             id="search-button"
                             onClick={handleClick}
                             className="form-submit-button">
                             <p>SEARCH</p>
                         </button>
+                        </Link>
                         <div className='search-secondary'>
-                            Display postcode input (sample): {selected}
                         </div>
                     </div>
                 </div>

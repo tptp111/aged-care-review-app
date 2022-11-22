@@ -7,9 +7,14 @@
   <component name="ChangeListManager">
     <list default="true" id="2375a300-a525-46d8-869c-0dbeb8359006" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AgedCareReviewApp.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AgedCareReviewApp.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/public/images/bg-image.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/public/images/testimage.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/FacilitySearchResultController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/FacilitySearchResultController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AgedCareReviewApp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/AgedCareReviewApp.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientApp/public/images/facility/tender.png" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/public/images/facility/modern.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientApp/src/components/NavMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/components/NavMenu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientApp/src/pages/FacilitySearchResults.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/pages/FacilitySearchResults.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientApp/src/pages/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/pages/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientApp/src/pages/Search.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/pages/Search.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientApp/src/pages/SignInOrRegister.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/pages/SignInOrRegister.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Repository/FacilitySearchResultRepo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Repository/FacilitySearchResultRepo.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,15 +29,11 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/../../Models/Facility.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../Models/Review.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../Models/Suburb.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../Models/User.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../Views/FacilitySearchResultView.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../Views/SalTest.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ClientApp/package-lock.json" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/14d190cafa432f6eebf0b7796e30f22e6ab1783246e9ddbd9c879bfa52c5431/NpgsqlDataReader.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/4fc7e7141e7fcbc46ed24319eed11107796965acd12bd303f86ea69839a734/NpgsqlCommand.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bebd253e21dcf766929bfdfd74615bfe46e6e1693b289273dbdb82152893/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/c197ef9ddaaf18a22eb72595ceb984d9dc89032fa86e66c26edbb60e476bd/HttpsRedirectionBuilderExtensions.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -43,15 +44,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
+    ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected=".NET Launch Settings Profile.AgedCareReviewApp">
     <configuration name="AgedCareReviewApp" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/AgedCareReviewApp.csproj" />

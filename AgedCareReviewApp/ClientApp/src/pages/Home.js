@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/pages/Home.css';
+import {ApplicationPaths} from "../components/api-authorization/ApiAuthorizationConstants";
 
 export class Home extends Component {
   static displayName = Home.name;
@@ -14,7 +15,9 @@ export class Home extends Component {
             <h2>Transparent Aged Care Reviews</h2>
             <h3>Search for an aged care review or provide feedback on a facility</h3>
             <div>
+              <Link to="/Search">
                 <button className='b b-primary'>Search</button>
+              </Link>
               <Link to="/SignInOrRegister">
                 <button className='b b-accent'>Review</button>
               </Link>

@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import '../styles/Main.css';
 import '../styles/pages/Home.css';
+import { Link } from 'react-router-dom';
+
 export class FacilitySearchResults extends Component {
     static displayName = FacilitySearchResults.name;
 
@@ -19,14 +21,14 @@ export class FacilitySearchResults extends Component {
                 {facilities.map(facility =>
                     <div className='facility-card-list col-lg-8 col-sm-10'>
                         <article className="card">
-                            <img src='/images/facility/benetas.png'/>
+                            {/*<img src='/images/facility/benetas.png'/>*/}
+                            <img src={facility.facilityImagePath}/>
+
                             <div className="card-body">
                                 <h1 className="card-title">{facility.facilityName}</h1>
                                 <p><b>Overall Rating: </b>
                                     {facility.overallScore} / 5 <i>({facility.totalNumberOfReviews} reviews)</i></p>
-                                {/*<h6>{facility.street} {facility.suburbName} {facility.postcode}{}</h6>*/}
                                 <hr/>
-                                {/*<p className="card-text"><b>Description: </b>{facility.description}</p>*/}
                                 <a href="#" className="btn btn-primary text-right">View Facility</a>
                             </div>
                         </article>
@@ -45,7 +47,7 @@ export class FacilitySearchResults extends Component {
         return (
             <div>
                 <h1>Facility Search Results</h1>
-                <p className="screen-description">View a list of available properties that match your search criteria</p>
+                <p className="screen-description">Below is a list of aged care facilities that match your search criteria</p>
                 {contents}
             </div>
         );

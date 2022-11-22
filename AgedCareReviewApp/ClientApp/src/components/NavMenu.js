@@ -42,15 +42,6 @@ export class NavMenu extends Component {
                 <NavLink tag={Link} className="text-light" to="/search">SEARCH</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink tag={Link} className="text-light" to="/counter">COUNTER</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink tag={Link} className="text-light" to="/fetch-data">FETCH DATA</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink tag={Link} className="text-light" to="/form-test">FORM TEST</NavLink>
-              </NavItem>
-              <NavItem>
                 <NavLink tag={Link} className="text-light" to="/facility-search-results">SEARCH RESULTS</NavLink>
               </NavItem>
               <LoginMenu>

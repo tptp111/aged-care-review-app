@@ -25,12 +25,8 @@ export class SignInOrRegister extends Component {
                             
                         </p>
                         <div>
-                            <Link to={ApplicationPaths.Login}>
                                 <button className='b b-primary'>Sign In</button>
-                            </Link>
-                            <Link to={ApplicationPaths.Register}>
                                 <button className='b b-accent'>Register</button>
-                            </Link>   
                         </div>
 
                     </div>
