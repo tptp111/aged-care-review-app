@@ -16,11 +16,12 @@ builder.Services.AddDbContext<ApplicationContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DBConnectionLocal"));
 });
 
-builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = true)
+builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddEntityFrameworkStores<ApplicationContext>();
 
 builder.Services.AddIdentityServer()
-    .AddApiAuthorization<User, ApplicationContext>();
+    .AddApiAuthorization<User, ApplicationContext>()
+    .AddDeveloperSigningCredential();
 
 builder.Services.AddAuthentication()
     .AddIdentityServerJwt();

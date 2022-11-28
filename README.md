@@ -39,7 +39,17 @@ Create an appsettings.development.json file in the project directory with the fo
     "DBConnectionAzure":"",
     "DBConnectionAzureTest":"",
     "DBConnectionLocal":"Host=localhost:5432;Username=;Password=;Database=aged-care-review"
-  }
+  },
+  "IdentityServer": {
+    "Clients": {
+      "AgedCareReviewApp": {
+        "Profile": "IdentityServerSPA"
+      }
+    },
+    "Key": {
+      "Type": "Development"
+    }
+  },
 }
 ```
 ## Starting the App
