@@ -7,11 +7,17 @@ import { Search } from "./pages/Search";
 import { SignInOrRegister } from "./pages/SignInOrRegister";
 import { TermsOfUse } from "./pages/TermsOfUse";
 import { About } from "./pages/About";
+import { Review } from "./pages/Review";
+import { ReviewConfirmation } from "./pages/ReviewConfirmation";
 import { FormTest } from "./pages/FormTest";
 
 const AppRoutes = [
   {
     index: true,
+    element: <Home />
+  },
+  {
+    path: '/Home',
     element: <Home />
   },
   {
@@ -29,6 +35,14 @@ const AppRoutes = [
   {
     path: '/about',
     element: <About />
+  },
+  {
+    path: '/Review',
+    element: <Review />
+  },
+  {
+    path: '/ReviewConfirmation',
+    element: <ReviewConfirmation />
   },
   {
     path: '/form-test',

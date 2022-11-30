@@ -1,0 +1,28 @@
+.logo-img-rev-conf {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    /*width: 50%; */
+}
+.rev-conf-column {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    row-gap: 30px;
+}
+#rev-conf-p {
+    width: 65%;
+    font-size: 25px;
+    margin-left: 100px;
+    
+}
+#rev-conf-h1 {
+    text-align: left;
+    margin-left: 100px;
+    color: #0d0d66;
+}
+#rev-conf-button {
+    margin-left: 100px;
+    width: 250px;
+}
+
