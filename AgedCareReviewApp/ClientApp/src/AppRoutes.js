@@ -7,7 +7,7 @@ import { Search } from "./pages/Search";
 import { SignInOrRegister } from "./pages/SignInOrRegister";
 import { TermsOfUse } from "./pages/TermsOfUse";
 import { About } from "./pages/About";
-import { Review } from "./pages/Review";
+import { PostReview } from "./pages/PostReview";
 import { ReviewConfirmation } from "./pages/ReviewConfirmation";
 import { FormTest } from "./pages/FormTest";
 
@@ -37,8 +37,8 @@ const AppRoutes = [
     element: <About />
   },
   {
-    path: '/Review',
-    element: <Review />
+    path: '/postreview',
+    element: <PostReview />
   },
   {
     path: '/ReviewConfirmation',

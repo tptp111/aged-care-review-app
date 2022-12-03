@@ -7,7 +7,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace AgedCareReviewApp.Migrations
 {
     /// <inheritdoc />
-    public partial class Initial : Migration
+    public partial class UpdatedReview : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -157,18 +157,17 @@ namespace AgedCareReviewApp.Migrations
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     InitialReviewDate = table.Column<string>(type: "text", nullable: false),
-                    LastReviewDate = table.Column<string>(type: "text", nullable: false),
                     FeedbackComments = table.Column<string>(type: "text", nullable: false),
-                    OverallScore = table.Column<int>(type: "integer", nullable: false),
+                    OverallScore = table.Column<float>(type: "real", nullable: false),
                     QualityOfCareScore = table.Column<int>(type: "integer", nullable: false),
-                    StaffScore = table.Column<int>(type: "integer", nullable: false),
                     FoodScore = table.Column<int>(type: "integer", nullable: false),
                     AmenitiesScore = table.Column<int>(type: "integer", nullable: false),
-                    SafetyScore = table.Column<int>(type: "integer", nullable: false),
+                    StaffScore = table.Column<int>(type: "integer", nullable: false),
                     ActivityProgramsScore = table.Column<int>(type: "integer", nullable: false),
+                    SafetyScore = table.Column<int>(type: "integer", nullable: false),
                     ReviewValidated = table.Column<bool>(type: "boolean", nullable: false),
                     FacilityName = table.Column<string>(type: "text", nullable: false),
-                    UserId = table.Column<int>(type: "integer", nullable: false)
+                    UserEmail = table.Column<string>(type: "text", nullable: false)
                 },
                 constraints: table =>
                 {

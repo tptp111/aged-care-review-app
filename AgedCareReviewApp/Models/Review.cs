@@ -6,26 +6,26 @@ public class Review
 {
     public int Id { get; set; }
     public string InitialReviewDate { get; set; }
-    public string LastReviewDate { get; set; }
+    // public string LastReviewDate { get; set; }
     [Required]
     public string FeedbackComments { get; set; }
     [Required]
-    public int OverallScore { get; set; } 
+    public float OverallScore { get; set; }
     [Required]
     public int QualityOfCareScore { get; set; }
-    [Required]
-    public int StaffScore { get; set; } 
     [Required]
     public int FoodScore { get; set; } 
     [Required]
     public int AmenitiesScore { get; set; } 
     [Required]
-    public int SafetyScore { get; set; } 
+    public int StaffScore { get; set; }
     [Required]
     public int ActivityProgramsScore { get; set; }
+    [Required]
+    public int SafetyScore { get; set; }
     public bool ReviewValidated { get; set; } = false;
     [Required]
     public string FacilityName  { get; set; }
     [Required]
-    public int UserId { get; set; }
+    public string UserEmail { get; set; }
 }

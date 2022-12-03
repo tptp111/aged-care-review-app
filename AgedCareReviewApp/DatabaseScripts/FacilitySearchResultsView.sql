@@ -21,7 +21,7 @@ SELECT f."Id",
        avg(r."SafetyScore") AS "AverageSafetyScore",
        avg(r."ActivityProgramsScore") AS "AverageActivityProgramsScore",
        avg(r."AmenitiesScore") AS "AverageAmenitiesScore",
-       count(*) AS "NumberOfReveiws"
+       count(*) AS "NumberOfReviews"
 FROM "Facilities" f
          LEFT JOIN "Reviews" r ON r."FacilityName" = f."FacilityName"
 GROUP BY f."Id";

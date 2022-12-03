@@ -1,6 +1,6 @@
 /* Populate Facility data */
 truncate table public."Facilities";
-truncate table public."Reviews"
+truncate table public."Reviews";
 
 /*
 --Carlton
@@ -73,85 +73,85 @@ VALUES('Modern Aged Care Coburg', '132 Lygon RD', '3058', 'Coburg', 'Victoria', 
 
 ----------benetas brunswick reviews
 INSERT INTO public."Reviews"
-("InitialReviewDate", "LastReviewDate", "FeedbackComments", "OverallScore", "QualityOfCareScore", "StaffScore", "FoodScore", "AmenitiesScore", "SafetyScore", "ActivityProgramsScore", "ReviewValidated", "FacilityName", "UserId")
-VALUES('2021-01-01', '2021-01-01', 'My dad loved it here and I would highly recommend it', 5, 8, 8, 8, 8, 8, 8, false, 'Benetas Aged Care Brunswick', 1);
+("InitialReviewDate", "FeedbackComments", "OverallScore", "QualityOfCareScore", "StaffScore", "FoodScore", "AmenitiesScore", "SafetyScore", "ActivityProgramsScore", "ReviewValidated", "FacilityName", "UserEmail")
+VALUES('2021-01-01', 'My dad loved it here and I would highly recommend it', 5, 8, 8, 8, 8, 8, 8, false, 'Benetas Aged Care Brunswick', 'test@mail.com');
 
 INSERT INTO public."Reviews"
-("InitialReviewDate", "LastReviewDate", "FeedbackComments", "OverallScore", "QualityOfCareScore", "StaffScore", "FoodScore", "AmenitiesScore", "SafetyScore", "ActivityProgramsScore", "ReviewValidated", "FacilityName", "UserId")
-VALUES('2021-01-01', '2021-01-01', 'The staff are friendly and the location is great', 4, 7, 7, 7, 7, 7, 7, false, 'Benetas Aged Care Brunswick', 2);
+("InitialReviewDate", "FeedbackComments", "OverallScore", "QualityOfCareScore", "StaffScore", "FoodScore", "AmenitiesScore", "SafetyScore", "ActivityProgramsScore", "ReviewValidated", "FacilityName", "UserEmail")
+VALUES('2021-01-01', 'The staff are friendly and the location is great', 4, 7, 7, 7, 7, 7, 7, false, 'Benetas Aged Care Brunswick', 'test@mail.com');
 
 ------------invictus brunswick reviews
 
 
 INSERT INTO public."Reviews"
-("InitialReviewDate", "LastReviewDate", "FeedbackComments", "OverallScore", "QualityOfCareScore", "StaffScore", "FoodScore", "AmenitiesScore", "SafetyScore", "ActivityProgramsScore", "ReviewValidated", "FacilityName", "UserId")
-VALUES('2021-01-01', '2021-01-01', 'My dad loved it here and I would highly recommend it', 5, 8, 8, 8, 8, 8, 8, false, 'Invictus Aged Care Brunswick', 7);
+("InitialReviewDate", "FeedbackComments", "OverallScore", "QualityOfCareScore", "StaffScore", "FoodScore", "AmenitiesScore", "SafetyScore", "ActivityProgramsScore", "ReviewValidated", "FacilityName", "UserEmail")
+VALUES('2021-01-01', 'My dad loved it here and I would highly recommend it', 5, 8, 8, 8, 8, 8, 8, false, 'Invictus Aged Care Brunswick', 'test@mail.com');
 
 INSERT INTO public."Reviews"
-("InitialReviewDate", "LastReviewDate", "FeedbackComments", "OverallScore", "QualityOfCareScore", "StaffScore", "FoodScore", "AmenitiesScore", "SafetyScore", "ActivityProgramsScore", "ReviewValidated", "FacilityName", "UserId")
-VALUES('2021-01-01', '2021-01-01', 'The staff are friendly and the location is great', 4, 7, 7, 7, 7, 7, 7, false, 'Invictus Aged Care Brunswick', 8);
+("InitialReviewDate", "FeedbackComments", "OverallScore", "QualityOfCareScore", "StaffScore", "FoodScore", "AmenitiesScore", "SafetyScore", "ActivityProgramsScore", "ReviewValidated", "FacilityName", "UserEmail")
+VALUES('2021-01-01', 'The staff are friendly and the location is great', 4, 7, 7, 7, 7, 7, 7, false, 'Invictus Aged Care Brunswick', 'test@mail.com');
 
 INSERT INTO public."Reviews"
-("InitialReviewDate", "LastReviewDate", "FeedbackComments", "OverallScore", "QualityOfCareScore", "StaffScore", "FoodScore", "AmenitiesScore", "SafetyScore", "ActivityProgramsScore", "ReviewValidated", "FacilityName", "UserId")
-VALUES('2021-01-01', '2021-01-01', 'My Mum loved it here and I would highly recommend it', 5, 8, 8, 8, 8, 8, 8, false, 'Invictus Aged Care Brunswick', 9);
+("InitialReviewDate", "FeedbackComments", "OverallScore", "QualityOfCareScore", "StaffScore", "FoodScore", "AmenitiesScore", "SafetyScore", "ActivityProgramsScore", "ReviewValidated", "FacilityName", "UserEmail")
+VALUES('2021-01-01', 'My Mum loved it here and I would highly recommend it', 5, 8, 8, 8, 8, 8, 8, false, 'Invictus Aged Care Brunswick', 'test@mail.com');
 
 INSERT INTO public."Reviews"
-("InitialReviewDate", "LastReviewDate", "FeedbackComments", "OverallScore", "QualityOfCareScore", "StaffScore", "FoodScore", "AmenitiesScore", "SafetyScore", "ActivityProgramsScore", "ReviewValidated", "FacilityName", "UserId")
-VALUES('2021-01-01', '2021-01-01', 'The staff are friendly and the location is great', 5, 9, 9, 9, 9, 9, 9, false, 'Invictus Aged Care Brunswick', 10);
+("InitialReviewDate", "FeedbackComments", "OverallScore", "QualityOfCareScore", "StaffScore", "FoodScore", "AmenitiesScore", "SafetyScore", "ActivityProgramsScore", "ReviewValidated", "FacilityName", "UserEmail")
+VALUES('2021-01-01', 'The staff are friendly and the location is great', 5, 9, 9, 9, 9, 9, 9, false, 'Invictus Aged Care Brunswick', 'test@mail.com');
 
 
 ------------argcare brunswick reviews
 INSERT INTO public."Reviews"
-("InitialReviewDate", "LastReviewDate", "FeedbackComments", "OverallScore", "QualityOfCareScore", "StaffScore", "FoodScore", "AmenitiesScore", "SafetyScore", "ActivityProgramsScore", "ReviewValidated", "FacilityName", "UserId")
-VALUES('2021-01-01', '2021-01-01', 'My dad loved it here and I would highly recommend it', 5, 8, 8, 8, 8, 8, 8, false, 'Argcare Aged Care Brunswick', 3);
+("InitialReviewDate", "FeedbackComments", "OverallScore", "QualityOfCareScore", "StaffScore", "FoodScore", "AmenitiesScore", "SafetyScore", "ActivityProgramsScore", "ReviewValidated", "FacilityName", "UserEmail")
+VALUES('2021-01-01', 'My dad loved it here and I would highly recommend it', 5, 8, 8, 8, 8, 8, 8, false, 'Argcare Aged Care Brunswick', 'test@mail.com');
 
 INSERT INTO public."Reviews"
-("InitialReviewDate", "LastReviewDate", "FeedbackComments", "OverallScore", "QualityOfCareScore", "StaffScore", "FoodScore", "AmenitiesScore", "SafetyScore", "ActivityProgramsScore", "ReviewValidated", "FacilityName", "UserId")
-VALUES('2021-01-01', '2021-01-01', 'The staff are friendly and the location is great', 4, 7, 7, 7, 7, 7, 7, false, 'Argcare Aged Care Brunswick', 4);
+("InitialReviewDate", "FeedbackComments", "OverallScore", "QualityOfCareScore", "StaffScore", "FoodScore", "AmenitiesScore", "SafetyScore", "ActivityProgramsScore", "ReviewValidated", "FacilityName", "UserEmail")
+VALUES('2021-01-01', 'The staff are friendly and the location is great', 4, 7, 7, 7, 7, 7, 7, false, 'Argcare Aged Care Brunswick', 'test@mail.com');
 
 INSERT INTO public."Reviews"
-("InitialReviewDate", "LastReviewDate", "FeedbackComments", "OverallScore", "QualityOfCareScore", "StaffScore", "FoodScore", "AmenitiesScore", "SafetyScore", "ActivityProgramsScore", "ReviewValidated", "FacilityName", "UserId")
-VALUES('2021-01-01', '2021-01-01', 'My Mum loved it here and I would highly recommend it', 5, 8, 8, 8, 8, 8, 8, false, 'Argcare Aged Care Brunswick', 5);
+("InitialReviewDate", "FeedbackComments", "OverallScore", "QualityOfCareScore", "StaffScore", "FoodScore", "AmenitiesScore", "SafetyScore", "ActivityProgramsScore", "ReviewValidated", "FacilityName", "UserEmail")
+VALUES('2021-01-01', 'My Mum loved it here and I would highly recommend it', 5, 8, 8, 8, 8, 8, 8, false, 'Argcare Aged Care Brunswick', 'test@mail.com');
 
 INSERT INTO public."Reviews"
-("InitialReviewDate", "LastReviewDate", "FeedbackComments", "OverallScore", "QualityOfCareScore", "StaffScore", "FoodScore", "AmenitiesScore", "SafetyScore", "ActivityProgramsScore", "ReviewValidated", "FacilityName", "UserId")
-VALUES('2021-01-01', '2021-01-01', 'The staff are friendly and the location is great', 3, 6, 6, 6, 6, 6, 6, false, 'Argcare Aged Care Brunswick', 6);
+("InitialReviewDate", "FeedbackComments", "OverallScore", "QualityOfCareScore", "StaffScore", "FoodScore", "AmenitiesScore", "SafetyScore", "ActivityProgramsScore", "ReviewValidated", "FacilityName", "UserEmail")
+VALUES('2021-01-01', 'The staff are friendly and the location is great', 3, 6, 6, 6, 6, 6, 6, false, 'Argcare Aged Care Brunswick', 'test@mail.com');
 
 
 ------------mercy brunswick reviews
 INSERT INTO public."Reviews"
-("InitialReviewDate", "LastReviewDate", "FeedbackComments", "OverallScore", "QualityOfCareScore", "StaffScore", "FoodScore", "AmenitiesScore", "SafetyScore", "ActivityProgramsScore", "ReviewValidated", "FacilityName", "UserId")
-VALUES('2021-01-01', '2021-01-01', 'My dad loved it here and I would highly recommend it', 5, 8, 8, 8, 8, 8, 8, false, 'Mercy Aged Care Brunswick', 11);
+("InitialReviewDate", "FeedbackComments", "OverallScore", "QualityOfCareScore", "StaffScore", "FoodScore", "AmenitiesScore", "SafetyScore", "ActivityProgramsScore", "ReviewValidated", "FacilityName", "UserEmail")
+VALUES('2021-01-01', 'My dad loved it here and I would highly recommend it', 5, 8, 8, 8, 8, 8, 8, false, 'Mercy Aged Care Brunswick', 'test@mail.com');
 
 INSERT INTO public."Reviews"
-("InitialReviewDate", "LastReviewDate", "FeedbackComments", "OverallScore", "QualityOfCareScore", "StaffScore", "FoodScore", "AmenitiesScore", "SafetyScore", "ActivityProgramsScore", "ReviewValidated", "FacilityName", "UserId")
-VALUES('2021-01-01', '2021-01-01', 'The staff are friendly and the location is great', 2, 3, 3, 3, 3, 3, 3, false, 'Mercy Aged Care Brunswick', 12);
+("InitialReviewDate", "FeedbackComments", "OverallScore", "QualityOfCareScore", "StaffScore", "FoodScore", "AmenitiesScore", "SafetyScore", "ActivityProgramsScore", "ReviewValidated", "FacilityName", "UserEmail")
+VALUES('2021-01-01', 'The staff are friendly and the location is great', 2, 3, 3, 3, 3, 3, 3, false, 'Mercy Aged Care Brunswick', 'test@mail.com');
 
 INSERT INTO public."Reviews"
-("InitialReviewDate", "LastReviewDate", "FeedbackComments", "OverallScore", "QualityOfCareScore", "StaffScore", "FoodScore", "AmenitiesScore", "SafetyScore", "ActivityProgramsScore", "ReviewValidated", "FacilityName", "UserId")
-VALUES('2021-01-01', '2021-01-01', 'My Mum loved it here and I would highly recommend it', 5, 8, 8, 8, 8, 8, 8, false, 'Mercy Aged Care Brunswick', 13);
+("InitialReviewDate", "FeedbackComments", "OverallScore", "QualityOfCareScore", "StaffScore", "FoodScore", "AmenitiesScore", "SafetyScore", "ActivityProgramsScore", "ReviewValidated", "FacilityName", "UserEmail")
+VALUES('2021-01-01', 'My Mum loved it here and I would highly recommend it', 5, 8, 8, 8, 8, 8, 8, false, 'Mercy Aged Care Brunswick', 'test@mail.com');
 
 INSERT INTO public."Reviews"
-("InitialReviewDate", "LastReviewDate", "FeedbackComments", "OverallScore", "QualityOfCareScore", "StaffScore", "FoodScore", "AmenitiesScore", "SafetyScore", "ActivityProgramsScore", "ReviewValidated", "FacilityName", "UserId")
-VALUES('2021-01-01', '2021-01-01', 'The staff are friendly and the location is great', 5, 9, 9, 9, 9, 9, 9, false, 'Mercy Aged Care Brunswick', 14);
+("InitialReviewDate", "FeedbackComments", "OverallScore", "QualityOfCareScore", "StaffScore", "FoodScore", "AmenitiesScore", "SafetyScore", "ActivityProgramsScore", "ReviewValidated", "FacilityName", "UserEmail")
+VALUES('2021-01-01', 'The staff are friendly and the location is great', 5, 9, 9, 9, 9, 9, 9, false, 'Mercy Aged Care Brunswick', 'test@mail.com');
 
 
 ------------modern brunswick reviews
 INSERT INTO public."Reviews"
-("InitialReviewDate", "LastReviewDate", "FeedbackComments", "OverallScore", "QualityOfCareScore", "StaffScore", "FoodScore", "AmenitiesScore", "SafetyScore", "ActivityProgramsScore", "ReviewValidated", "FacilityName", "UserId")
-VALUES('2021-01-01', '2021-01-01', 'My dad loved it here and I would highly recommend it', 4, 8, 8, 8, 8, 8, 8, false, 'Modern Aged Care Brunswick', 15);
+("InitialReviewDate", "FeedbackComments", "OverallScore", "QualityOfCareScore", "StaffScore", "FoodScore", "AmenitiesScore", "SafetyScore", "ActivityProgramsScore", "ReviewValidated", "FacilityName", "UserEmail")
+VALUES('2021-01-01', 'My dad loved it here and I would highly recommend it', 4, 8, 8, 8, 8, 8, 8, false, 'Modern Aged Care Brunswick', 'test@mail.com');
 
 INSERT INTO public."Reviews"
-("InitialReviewDate", "LastReviewDate", "FeedbackComments", "OverallScore", "QualityOfCareScore", "StaffScore", "FoodScore", "AmenitiesScore", "SafetyScore", "ActivityProgramsScore", "ReviewValidated", "FacilityName", "UserId")
-VALUES('2021-01-01', '2021-01-01', 'The staff are friendly and the location is great', 2, 8, 7, 6, 5, 5, 3, false, 'Modern Aged Care Brunswick', 16);
+("InitialReviewDate", "FeedbackComments", "OverallScore", "QualityOfCareScore", "StaffScore", "FoodScore", "AmenitiesScore", "SafetyScore", "ActivityProgramsScore", "ReviewValidated", "FacilityName", "UserEmail")
+VALUES('2021-01-01', 'The staff are friendly and the location is great', 2, 8, 7, 6, 5, 5, 3, false, 'Modern Aged Care Brunswick', 'test@mail.com');
 
 INSERT INTO public."Reviews"
-("InitialReviewDate", "LastReviewDate", "FeedbackComments", "OverallScore", "QualityOfCareScore", "StaffScore", "FoodScore", "AmenitiesScore", "SafetyScore", "ActivityProgramsScore", "ReviewValidated", "FacilityName", "UserId")
-VALUES('2021-01-01', '2021-01-01', 'My Mum loved it here and I would highly recommend it', 4, 8, 8, 8, 8, 8, 8, false, 'Modern Aged Care Brunswick', 17);
+("InitialReviewDate", "FeedbackComments", "OverallScore", "QualityOfCareScore", "StaffScore", "FoodScore", "AmenitiesScore", "SafetyScore", "ActivityProgramsScore", "ReviewValidated", "FacilityName", "UserEmail")
+VALUES('2021-01-01', 'My Mum loved it here and I would highly recommend it', 4, 8, 8, 8, 8, 8, 8, false, 'Modern Aged Care Brunswick', 'test@mail.com');
 
 INSERT INTO public."Reviews"
-("InitialReviewDate", "LastReviewDate", "FeedbackComments", "OverallScore", "QualityOfCareScore", "StaffScore", "FoodScore", "AmenitiesScore", "SafetyScore", "ActivityProgramsScore", "ReviewValidated", "FacilityName", "UserId")
-VALUES('2021-01-01', '2021-01-01', 'The staff are friendly and the location is great', 4, 9, 9, 9, 9, 9, 9, false, 'Modern Aged Care Brunswick', 18);
+("InitialReviewDate", "FeedbackComments", "OverallScore", "QualityOfCareScore", "StaffScore", "FoodScore", "AmenitiesScore", "SafetyScore", "ActivityProgramsScore", "ReviewValidated", "FacilityName", "UserEmail")
+VALUES('2021-01-01', 'The staff are friendly and the location is great', 4, 9, 9, 9, 9, 9, 9, false, 'Modern Aged Care Brunswick', 'test@mail.com');
 
 
 

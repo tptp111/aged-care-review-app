@@ -129,12 +129,8 @@ namespace AgedCareReviewApp.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("LastReviewDate")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<int>("OverallScore")
-                        .HasColumnType("integer");
+                    b.Property<float>("OverallScore")
+                        .HasColumnType("real");
 
                     b.Property<int>("QualityOfCareScore")
                         .HasColumnType("integer");
@@ -148,8 +144,9 @@ namespace AgedCareReviewApp.Migrations
                     b.Property<int>("StaffScore")
                         .HasColumnType("integer");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("integer");
+                    b.Property<string>("UserEmail")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 

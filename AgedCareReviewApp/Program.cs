@@ -20,8 +20,7 @@ builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfi
     .AddEntityFrameworkStores<ApplicationContext>();
 
 builder.Services.AddIdentityServer()
-    .AddApiAuthorization<User, ApplicationContext>()
-    .AddDeveloperSigningCredential();
+    .AddApiAuthorization<User, ApplicationContext>();
 
 builder.Services.AddAuthentication()
     .AddIdentityServerJwt();

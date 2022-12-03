@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace AgedCareReviewApp.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20221121080117_Initial")]
-    partial class Initial
+    [Migration("20221203051409_UpdatedReview")]
+    partial class UpdatedReview
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -132,12 +132,8 @@ namespace AgedCareReviewApp.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("LastReviewDate")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<int>("OverallScore")
-                        .HasColumnType("integer");
+                    b.Property<float>("OverallScore")
+                        .HasColumnType("real");
 
                     b.Property<int>("QualityOfCareScore")
                         .HasColumnType("integer");
@@ -151,8 +147,9 @@ namespace AgedCareReviewApp.Migrations
                     b.Property<int>("StaffScore")
                         .HasColumnType("integer");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("integer");
+                    b.Property<string>("UserEmail")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
