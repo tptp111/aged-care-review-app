@@ -1,19 +1,26 @@
 import * as React from 'react';
-import { useRef, useState } from 'react';
+import {Component, useRef, useState} from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import '../styles/pages/Search.css';
-import { Link } from 'react-router-dom';
+import {Link, Navigate, useNavigate} from 'react-router-dom';
 
-export function Search() {
-    const inputRef = useRef(null);
-    const [selected, setSelected] = useState([]);
-    const handleClick = () => {
-        setSelected(inputRef.current.value);
-    };
+export class Search extends Component {
 
-    return (
+    constructor(props) {
+        super(props);
+        this.state = {postcode: "0000"};
+        this.updateValue = this.updateValue.bind(this);
+    }
+    
+    updateValue(event, value) {
+        this.setState({postcode: value})
+    }
+
+    render() {
+
+        return (
             <div className='row'>
                 <div className='col-lg-5 col-sm-12 search-left-column'>
                     <img className='search-img' src='/images/search.png' alt='Search Image'/>
@@ -25,31 +32,26 @@ export function Search() {
                             <em>Please enter a suburb or postcode</em>
                         </div>
                         <Autocomplete
-                            onChange={(event, value) => console.log(value)}
+                            onChange={(event, value) =>
+                                this.updateValue(event, value.postcode)
+                            }
                             required={true}
                             type="text"
                             className="autocomplete-input"
-                            sx={{ width: 350 }}
+                            sx={{width: 350}}
                             options={suburbs}
                             autoHighlight
                             getOptionLabel={(option) => option.suburb_name + ", " + option.postcode}
                             renderOption={(props, option) => (
                                 <Box component="li"
-                                     sx={{ '& > img': { mr: 2, flexShrink: 0 } }} {...props}>
-                                    <img
-                                        loading="lazy"
-                                        width="20"
-                                        src={`https://flagcdn.com/w20/${option.suburb_name.toLowerCase()}.png`}
-                                        srcSet={`https://flagcdn.com/w40/${option.suburb_name.toLowerCase()}.png 2x`}
-                                        alt=""
-                                    />
+                                     sx={{'& > img': {mr: 2, flexShrink: 0}}} {...props}>
                                     {option.suburb_name}, {option.postcode}
                                 </Box>
                             )}
                             renderInput={(params) => (
                                 <TextField
                                     {...params}
-                                    inputRef={inputRef}
+                                    // inputRef={inputRef}
                                     id="postcode"
                                     label="Postcode or suburb name"
                                     inputProps={{
@@ -59,10 +61,10 @@ export function Search() {
                                 />
                             )}
                         />
-                        <Link to="/facility-search-results">
+
+                        <Link to={'/facilitysearchresult/' + this.state.postcode} >
                         <button
                             id="search-button"
-                            onClick={handleClick}
                             className="form-submit-button">
                             <p>SEARCH</p>
                         </button>
@@ -72,33 +74,34 @@ export function Search() {
                     </div>
                 </div>
             </div>
-    );
+        );
+    }
 }
 
 const suburbs = [
     {
         postcode: "3000",
         suburb_name: "Melbourne",
-        state_name:"Victoria",
-        state_code:"VIC",
-        latitude:-37.814,
-        longitude:144.9633,
+        state_name: "Victoria",
+        state_code: "VIC",
+        latitude: -37.814,
+        longitude: 144.9633,
     },
     {
         postcode: "3056",
         suburb_name: "Brunswick",
-        state_name:"Victoria",
-        state_code:"VIC",
-        latitude:-37.7667,
-        longitude:144.9667,
+        state_name: "Victoria",
+        state_code: "VIC",
+        latitude: -37.7667,
+        longitude: 144.9667,
     },
     {
         postcode: "3070",
         suburb_name: "Northcote",
-        state_name:"Victoria",
-        state_code:"VIC",
-        latitude:-37.7667,
-        longitude:145,
+        state_name: "Victoria",
+        state_code: "VIC",
+        latitude: -37.7667,
+        longitude: 145,
     },
 ];
 

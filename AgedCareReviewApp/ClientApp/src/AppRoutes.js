@@ -10,6 +10,9 @@ import { About } from "./pages/About";
 import { PostReview } from "./pages/PostReview";
 import { ReviewConfirmation } from "./pages/ReviewConfirmation";
 import { FormTest } from "./pages/FormTest";
+import { FacilityProfile} from "./pages/FacilityProfile"
+
+
 
 const AppRoutes = [
   {
@@ -57,8 +60,12 @@ const AppRoutes = [
     element: <Search />
   },
   {
-    path: '/facility-search-results',
+    path: '/facilitysearchresult/:id',
     element: <FacilitySearchResults />
+  },
+  {
+    path: '/facilityprofile/:facility',
+    element: <FacilityProfile />
   },
     ...ApiAuthorzationRoutes
 ];
