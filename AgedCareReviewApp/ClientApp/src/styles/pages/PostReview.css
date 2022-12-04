@@ -84,22 +84,13 @@
     margin: 0;
 }
 
-.review-comments-input {
-  padding: 25px;
-  width: 100%;
-  height: 200px;
-  border-radius: 12px;
-  border-color: black;
-  font-size: 27px;
-}
-
 .info {
     display: flex;
     align-items: center;
   margin-left: auto;
 }
 
-.rev-form-input {
+.rev-form-group {
     margin-bottom: 20px;
 }
 
@@ -115,4 +106,14 @@
 
 .rev-overall {
     margin: 30px 0 0 30px;
+}
+
+.review-error-summary {
+    margin-top: -30px;
+    color: red;
+    font-weight: bold;
+}
+
+.rev-small-error {
+    color: red !important;
 }

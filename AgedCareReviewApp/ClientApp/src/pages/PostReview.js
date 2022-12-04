@@ -11,73 +11,96 @@ export class PostReview extends Component {
     this.state = {
       navigate: false,
       popoverOpen: false,
-      facilityName: window.location.href.split("/").pop().replaceAll("%20", " "),
-      reviewScores: [
-        {
-          name: "care",
-          value: 0,
-        },
-        {
-          name: "food",
-          value: 0,
-        },
-        {
-          name: "amenities",
-          value: 0,
-        },
-        {
-          name: "staff",
-          value: 0,
-        },
-        {
-          name: "activities",
-          value: 0,
-        },
-        {
-          name: "safety",
-          value: 0,
-        },
-      ],
-      userDetails: [
-        "",
-        "",
-        "",
-        "",
-        "",
-      ],
+      facilityName: "Melbourne Aged Care",
+      firstName:"",
+      lastName:"",
+      userEmail:"",
+      userType:"I am a current / past resident at this facility",
+      medicareNumber:"",
       overallScore: 0,
+      qualityOfCareScore: 0,
+      foodScore: 0,
+      amenitiesScore: 0,
+      staffScore: 0,
+      activityProgramsScore: 0,
+      safetyScore: 0,
       feedbackComments: "",
+      errors: {}
     };
 
-    this.handleUserDetailChange = this.handleUserDetailChange.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
     this.updateScore = this.updateScore.bind(this);
-    this.handleCommentChange = this.handleCommentChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   updateScore(event) {
-    this.state.reviewScores[event.target.id].value = parseInt(
-      event.target.value
-    );
-    let sum = 0;
-    this.state.reviewScores.forEach((i) => {
-      sum += i.value;
+    const index = event.target.id;
+    const value = parseInt(event.target.value);
+    this.setState({[index]: value}, () => {
+      this.calculateOverall();
     });
+  }
+
+  calculateOverall() {
+    const { qualityOfCareScore, foodScore, amenitiesScore, staffScore, activityProgramsScore, safetyScore } = this.state;
+    const sum = qualityOfCareScore
+       + foodScore
+       + amenitiesScore
+       + staffScore 
+       + activityProgramsScore 
+       + safetyScore;
+
     this.state.overallScore = (sum / 6).toFixed(2);
     var updatedState = this.state;
     this.setState(updatedState);
   }
 
-  handleCommentChange(event) {
-    this.state.feedbackComments = event.target.value;
+  handleInputChange(event) {
+    const id = event.target.id;
+    const value = event.target.value;
+    this.setState({[id]: value});
   }
 
-  handleUserDetailChange(event) {
-    this.state.userDetails[event.target.id - 6] = event.target.value;
+  applyValidations() {
+     const { firstName, lastName, userEmail, medicareNumber, feedbackComments } = this.state;
+     let isValid = true;
+     const errors = {};
+
+     if (firstName.trim().length === 0) {
+      errors.firstNameLength = "Please enter your first name";
+      isValid = false;
+     }
+
+     if (lastName.trim().length === 0) {
+      errors.lastNameLength = "Please enter your last name";
+      isValid = false;
+     }
+
+     if (userEmail.trim().length === 0) {
+      errors.userEmailLength = "Please enter your email address";
+      isValid = false;
+     }
+
+     if (medicareNumber.trim().length === 0) {
+      errors.medicareNumberLength = "Please enter your medicare number";
+      isValid = false;
+     }
+
+     if (feedbackComments.trim().length === 0) {
+      errors.feedbackCommentsLength = "Please enter your additional comments";
+      isValid = false;
+     }
+
+     this.setState({ errors });
+     return isValid;
   }
 
   async handleSubmit(event) {
     event.preventDefault();
+    const isValid = this.applyValidations();
+
+    if (!isValid)
+      return;
 
     const today = new Date();
     const date =
@@ -86,28 +109,28 @@ export class PostReview extends Component {
     let review = {
       id: 0,
       reviewValidated: false,
-      firstName: this.state.userDetails[0],
-      lastName: this.state.userDetails[1],
-      userEmail: this.state.userDetails[2],
-      medicareNumber: this.state.userDetails[3],
-      userType: this.state.userDetails[4],
+      firstName: this.state.firstName,
+      lastName: this.state.lastName,
+      userEmail: this.state.userEmail,
+      medicareNumber: this.state.medicareNumber,
+      userType: this.state.userType,
       initialReviewDate: date,
       feedbackComments: this.state.feedbackComments,
       overallScore: this.state.overallScore,
       facilityName: this.state.facilityName,
-      qualityOfCareScore: this.state.reviewScores[0].value,
-      foodScore: this.state.reviewScores[1].value,
-      amenitiesScore: this.state.reviewScores[2].value,
-      staffScore: this.state.reviewScores[3].value,
-      activityProgramsScore: this.state.reviewScores[4].value,
-      safetyScore: this.state.reviewScores[5].value,
+      qualityOfCareScore: this.state.qualityOfCareScore,
+      foodScore: this.state.foodScore,
+      amenitiesScore: this.state.amenitiesScore,
+      staffScore: this.state.staffScore,
+      activityProgramsScore: this.state.activityProgramsScore,
+      safetyScore: this.state.safetyScore,
     };
 
     const response = await fetch("Review", {
       method: "POST",
       headers: {
-            "Content-type": "application/json",
-          },
+        "Content-type": "application/json",
+      },
       body: JSON.stringify(review),
     });
 
@@ -118,10 +141,14 @@ export class PostReview extends Component {
 
   render() {
     let nav = this.state.navigate;
+    const errors = this.state.errors;
     return (
       <div className="rev-column">
         {nav && <Navigate to="/ReviewConfirmation" replace={true} />}
-        <h1 className="rev-h1-title"> Facility Review - {this.state.facilityName}</h1>
+        <h1 className="rev-h1-title">
+          {" "}
+          Facility Review - {this.state.facilityName}
+        </h1>
         <h1 className="rev-h1">Instructions</h1>
         <p className="rev-p">
           Your review will consist of rating the facility performance and
@@ -143,7 +170,7 @@ export class PostReview extends Component {
           />{" "}
           for some more guidance on the questions.
         </p>
-        <form className="review-form" onSubmit={this.handleSubmit}>
+        <form className="review-form needs-validation" onSubmit={this.handleSubmit}>
           <h1 className="rev-h1">Your Details</h1>
           <div className="rating-container">
             <div className="rating-container-header">
@@ -151,46 +178,102 @@ export class PostReview extends Component {
                 Please tell us about yourself.
               </label>
               <div className="info">
-                <Hint title="Personal Data"
+                <Hint
+                  title="Personal Data"
                   content="This information is used to manually verify the legitimacy of your review. After your review is verified by our staff, it will be displayed on the facility profile page."
                   placement="left"
                   trigger="hover"
                 />
               </div>
             </div>
-            <div className="form-group">
-              <label className="rev-comment-heading" for={6}>First name</label>
-              <input type="text" className="form-control form-control-lg rev-form-input" id={6} placeholder="Enter your first name" onChange={this.handleUserDetailChange} required/>
-              <small id="firstNameHelp" className="form-text text-muted"></small>
+            <div className="form-group rev-form-group">
+              <label className="rev-comment-heading">
+                First name
+              </label>
+              <input
+                type="text"
+                className={"form-control form-control-lg rev-form-input " + (errors.firstNameLength ? "is-invalid" : "")}
+                id="firstName"
+                placeholder="Enter your first name"
+                onChange={this.handleInputChange}
+              />
+              <small
+                id="firstNameHelp"
+                className="form-text text-muted rev-small-error"
+              >{errors.firstNameLength}</small>
             </div>
-            <div className="form-group">
-              <label className="rev-comment-heading" for={7}>Last name</label>
-              <input type="text" className="form-control form-control-lg rev-form-input" id={7} placeholder="Enter your last name" onChange={this.handleUserDetailChange} required/>
-              <small id="firstNameHelp" className="form-text text-muted"></small>
+            <div className="form-group rev-form-group">
+              <label className="rev-comment-heading">
+                Last name
+              </label>
+              <input
+                type="text"
+                className={"form-control form-control-lg rev-form-input " + (errors.lastNameLength ? "is-invalid" : "")}
+                id="lastName"
+                placeholder="Enter your last name"
+                onChange={this.handleInputChange}
+              />
+              <small
+                id="firstNameHelp"
+                className="form-text text-muted rev-small-error"
+              >{errors.lastNameLength}</small>
             </div>
-            <div className="form-group">
-              <label className="rev-comment-heading" for={8}>Email adress</label>
-              <input type="email" className="form-control form-control-lg rev-form-input" id={8} placeholder="Enter your email address" onChange={this.handleUserDetailChange} required/>
-              <small id="firstNameHelp" className="form-text text-muted"></small>
+            <div className="form-group rev-form-group">
+              <label className="rev-comment-heading">
+                Email address
+              </label>
+              <input
+                type="text"
+                className={"form-control form-control-lg rev-form-input " + (errors.userEmailLength ? "is-invalid" : "")}
+                id="userEmail"
+                placeholder="Enter your email address"
+                onChange={this.handleInputChange}
+              />
+              <small
+                id="firstNameHelp"
+                className="form-text text-muted rev-small-error"
+              >{errors.userEmailLength}</small>
             </div>
-            <div className="form-group">
-              <label className="rev-comment-heading" for={9}>Medicare number</label>
-              <input type="text" className="form-control form-control-lg rev-form-input" id={9} placeholder="Enter your medicare number" onChange={this.handleUserDetailChange} required/>
-              <small id="firstNameHelp" className="form-text text-muted"></small>
+            <div className="form-group rev-form-group">
+              <label className="rev-comment-heading">
+                Medicare number
+              </label>
+              <input
+                type="text"
+                className={"form-control form-control-lg rev-form-input " + (errors.medicareNumberLength ? "is-invalid" : "")}
+                id="medicareNumber"
+                placeholder="Enter your medicare number"
+                onChange={this.handleInputChange}
+              />
+              <small
+                id="firstNameHelp"
+                className="form-text text-muted rev-small-error"
+              >{errors.medicareNumberLength}</small>
             </div>
-            <div className="form-group">
-              <label className="rev-comment-heading" for={10}>Which of the following best described you?</label>
-              <select class="form-control form-control-lg rev-form-input" id={10} onChange={this.handleUserDetailChange} required>
+            <div className="form-group rev-form-group">
+              <label className="rev-comment-heading">
+                Which of the following best described you?
+              </label>
+              <select
+                class="form-control form-control-lg rev-form-input"
+                id="userType"
+                onChange={this.handleInputChange}
+              >
                 <option>I am a current / past resident at this facility</option>
-                <option>I am a carer of a current / past resident at this facility</option>
+                <option>
+                  I am a carer of a current / past resident at this facility
+                </option>
                 <option>I am a current / past employee at this facility</option>
                 <option>Other</option>
               </select>
-              <small id="firstNameHelp" className="form-text text-muted"></small>
+              <small
+                id="firstNameHelp"
+                className="form-text text-muted"
+              ></small>
             </div>
             <label form="temp" className="rev-comment-footer">
-                We use this information to verify your identity.
-              </label>
+              We use this information to verify your identity.
+            </label>
           </div>
           <h1 className="rev-h1">Facility Performance</h1>
           <div className="rev-horizontal-line"> </div>
@@ -220,7 +303,7 @@ export class PostReview extends Component {
                 />
               </div>
             </div>
-            <SlideBar id="careSlideBar" index={0} onChange={this.updateScore} />
+            <SlideBar index={"qualityOfCareScore"} onChange={this.updateScore} />
           </div>
 
           <div className="rating-container">
@@ -246,7 +329,7 @@ export class PostReview extends Component {
                 />
               </div>
             </div>
-            <SlideBar id="foodSlideBar" index={1} onChange={this.updateScore} />
+            <SlideBar index={"foodScore"} onChange={this.updateScore} />
           </div>
 
           <div className="rating-container">
@@ -270,8 +353,7 @@ export class PostReview extends Component {
               </div>
             </div>
             <SlideBar
-              id="amenitiesSlideBar"
-              index={2}
+              index={"amenitiesScore"}
               onChange={this.updateScore}
             />
           </div>
@@ -300,8 +382,7 @@ export class PostReview extends Component {
               </div>
             </div>
             <SlideBar
-              id="staffSlideBar"
-              index={3}
+              index={"staffScore"}
               onChange={this.updateScore}
             />
           </div>
@@ -329,8 +410,7 @@ export class PostReview extends Component {
               </div>
             </div>
             <SlideBar
-              id="activitiesSlideBar"
-              index={4}
+              index={"activityProgramsScore"}
               onChange={this.updateScore}
             />
           </div>
@@ -359,8 +439,7 @@ export class PostReview extends Component {
               </div>
             </div>
             <SlideBar
-              id="safetySlideBar"
-              index={5}
+              index={"safetyScore"}
               onChange={this.updateScore}
             />
           </div>
@@ -371,7 +450,9 @@ export class PostReview extends Component {
             <p className="rev-comment-heading">
               We've determined this overall rating below based on your answers.
             </p>
-            <h1 className="rev-overall">Overall Rating: {this.state.overallScore} / 10</h1>
+            <h1 className="rev-overall">
+              Overall Rating: {this.state.overallScore} / 10
+            </h1>
           </div>
 
           <h1 className="rev-h1">Additional Comments</h1>
@@ -381,13 +462,18 @@ export class PostReview extends Component {
               How would you describe your experience at this aged care facility?
             </label>
             <textarea
-              className="review-comments-input"
-              name="review-comments"
+              className={"review-comments-input form-control " + (errors.feedbackCommentsLength ? "is-invalid" : "")}
+              rows="5"
+              id="feedbackComments"
               placeholder="Please enter your comments here..."
-              onChange={this.handleCommentChange}
-              required
+              onChange={this.handleInputChange}
             ></textarea>
+            <small
+              id="firstNameHelp"
+              className="form-text text-muted rev-small-error"
+            >{errors.feedbackCommentsLength}</small>
           </div>
+          <p className="review-error-summary" style={(Object.keys(errors).length === 0 ? {display: 'none'} : {})}>Please ensure each field is filled out correctly.</p>
           <input
             className="b b-primary rev-submit-button"
             type="submit"
