@@ -45,8 +45,8 @@ export class Home extends Component {
         <div className='row'>
           <div className='col-lg-5 col-sm-12 home-left-column'>
             <img className='logo-img' src='/images/favicon.png' />
-            <h2>Transparent Aged Care Reviews</h2>
-            <h3>Search for an aged care facility to view their reviews and/or provide feedback</h3>
+            <h3>Aged Care Consumer Reviews Australia</h3>
+            <h5>Search for an aged care facility to view their reviews and/or provide feedback</h5>
             <div>
               <Link to="/Search">
                 <button className='b b-primary'>Search for a facility</button>
@@ -68,8 +68,8 @@ export class Home extends Component {
         <div className='row'>
           <div className='col-lg-5 col-sm-12 home-left-column'>
             <img className='logo-img' src='/images/favicon.png' />
-            <h2>Transparent Aged Care Reviews</h2>
-            <h3>Search for an aged care facility to view their reviews and/or provide feedback</h3>
+            <h3 className="home-heading">Aged Care Consumer Reviews Australia</h3>
+            <h5 className="home-subheading">Search for an aged care facility to view their reviews and/or provide feedback</h5>
             <div className='home-buttons'>
               <Link to="/Search">
                 <button className='b b-primary'>Search for a facility</button>

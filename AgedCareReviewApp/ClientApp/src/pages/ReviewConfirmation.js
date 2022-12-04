@@ -17,9 +17,8 @@ export class ReviewConfirmation extends Component {
                 </p>
 
                 <p id="rev-conf-p">
-                    Please note: All reviews undergo a moderation process before being listed on facility pages.  You will receive an
-                    email with a receipt of your submission.  If you have any questions or if you would like to modify
-                    or delete your review, you can follow the instructions enclosed within the email. 
+                    Please note: All reviews undergo a moderation process before being listed on facility pages. If you have any questions or if you would like to modify
+                    or delete your review, please email us at reception@mail.com. 
                 </p>
 
                 <div>

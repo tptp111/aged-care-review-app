@@ -148,7 +148,7 @@ export class FacilityProfile extends Component {
             <div className="profile-review-container row">
               <div className="col-lg-6 col-md-12">
                 <div className="profile-details-left">
-                  <h1 className="card-title">Benetas Brunswick</h1>
+                  <h1 className="card-title">{facility.facilityName}</h1>
                     <div className="profile-rate">
                       <div>
                         {facility.overallScore >= 0 && facility.overallScore <= 0.6
@@ -202,7 +202,7 @@ export class FacilityProfile extends Component {
                       <br></br>
                       <i className="information-icon fa-solid fa-globe"></i>
                       <a href="#">
-                        https://aged-care-review-app.azurewebsites.net/
+                        Click the link to visit the facilities website
                       </a>
                     </p>
                   </div>
@@ -219,14 +219,14 @@ export class FacilityProfile extends Component {
                   <Carousel.Item>
                     <img
                       className="d-block w-100"
-                      src={"/images/facility/benetas.png"}
+                      src={"/images/facility/indoorone.png"}
                       alt="Second slide"
                     />
                   </Carousel.Item>
                   <Carousel.Item>
                     <img
                       className="d-block w-100"
-                      src={"/images/facility/benetas.png"}
+                      src={"/images/facility/indoortwo.png"}
                       alt="Third slide"
                     />
                   </Carousel.Item>
