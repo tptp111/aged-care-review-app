@@ -1,10 +1,52 @@
 @import url('https://use.fontawesome.com/releases/v6.2.0/css/all.css');
 
 .carousel {
-    max-width:500px;
+    max-width:550px;
     float:right;
+    margin-left:30px;
 }
 
+.carousel-control-prev-icon {
+    background-image: url(../../../public/images/icons/left-scroll.png);
+}
+
+.carousel-control-next-icon {
+    background-image: url(../../../public/images/icons/right-scroll.png);
+}
+
+
+.write-button {
+    margin-left: 800px;
+    background-color: var(--accent-color);
+    border-radius: 8px;
+    border-style: none;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    height: 40px;
+    line-height: 20px;
+    list-style: none;
+    outline: none;
+    padding: 10px 16px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: color 100ms;
+    vertical-align: baseline;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+@media screen and (max-width:1199px) {
+    .write-button {
+        margin-left: 180px;
+    }
+}
+    
 .back-button {
     margin-left: 180px;
     background-color: #3D5A99;
@@ -41,28 +83,28 @@
 
 .side {
     float: left;
-    width: 15%;
+    width: 20%;
     margin-top:10px;
+    font-size: 25px;
+    padding-right:20px;
 }
 
 .middle {
     margin-top:10px;
     float: left;
-    width: 70%;
+    width: 60%;
 }
 
 .right {
     text-align: right;
 }
 
-.facility-row:after {
-    content: "";
-    display: table;
-    clear: both;
+.category-icon {
+    width:60px;
 }
 
-.category-icon {
-    padding-right:10px;
+.information-icon {
+    width: 20px;
 }
 
 .profile-details-left {
@@ -70,35 +112,36 @@
 }
 
 .bar-container {
-    width: 100%;
-    height: 18px;
+    width: 80%;
+    height: 30px;
     background-color: #D9D9D9;
     color: white;
+    margin-left:60px;
+    margin-bottom:50px;
 }
 
 .profile-text {
     margin-right:100px;
 }
 
+.bar-score {
+    height: 30px; 
+    background-color: #3D7CAE;
+}
+
 /* Individual bars */
-.bar-5 {width: 80%; height: 18px; background-color: #3D7CAE;}
-.bar-4 {width: 90%; height: 18px; background-color: #3D7CAE;}
-.bar-3 {width: 60%; height: 18px; background-color: #3D7CAE;}
-.bar-2 {width: 70%; height: 18px; background-color: #3D7CAE;}
-.bar-1 {width: var(--); height: 18px; background-color: #3D7CAE;}
+.bar-5 {width: 80%; height: 30px; background-color: #3D7CAE;}
+.bar-4 {width: 90%; height: 30px; background-color: #3D7CAE;}
+.bar-3 {width: 60%; height: 30px; background-color: #3D7CAE;}
+.bar-2 {width: 70%; height: 30px; background-color: #3D7CAE;}
+.bar-1 {width: 15%; height: 30px; background-color: #3D7CAE;}
 
 @media (max-width: 400px) {
     .side, .middle {
-        width: 100%;
+        width: 80%;
     }
     .right {
         display: none;
-    }
-}
-
-@media (min-width: 1200px) {
-    .carousel {
-        padding-left:50px;
     }
 }
 
@@ -115,10 +158,11 @@
     margin: 2rem;
     box-shadow: 1px 3px 2px rgba(0, 0, 0, .2);
     padding: 2.5rem;
+    border-radius: 22px;
 }
 
 .profile-h2 {
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
     color: #000000;
     font-family: 'Arial Rounded MT Bold', serif;
     font-size: 32px;

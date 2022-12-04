@@ -40,7 +40,7 @@ const AppRoutes = [
     element: <About />
   },
   {
-    path: '/postreview',
+    path: '/postreview/:facility',
     element: <PostReview />
   },
   {

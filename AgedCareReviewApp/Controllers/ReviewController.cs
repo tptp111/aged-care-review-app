@@ -20,7 +20,7 @@ public class ReviewController
     public List<Review> Get(string facilityName)
     {
         
-        return _dbContext.Reviews.Where(r => r.FacilityName == facilityName).ToList();
+        return _dbContext.Reviews.Where(r => r.FacilityName == facilityName && r.ReviewValidated == true).ToList();
     }
 
     [HttpPost]

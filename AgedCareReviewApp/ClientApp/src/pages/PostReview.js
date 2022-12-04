@@ -11,7 +11,7 @@ export class PostReview extends Component {
     this.state = {
       navigate: false,
       popoverOpen: false,
-      facilityName: "Melbourne Aged Care",
+      facilityName: window.location.href.split("/").pop().replaceAll("%20", " "),
       reviewScores: [
         {
           name: "care",
