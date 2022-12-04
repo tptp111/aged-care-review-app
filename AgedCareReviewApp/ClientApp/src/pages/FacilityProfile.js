@@ -127,25 +127,87 @@ export class FacilityProfile extends Component {
 
     return (
       <div>
-        <Link to={"/facilitysearchresult/" + facility.postcode}>
-          <input
-            className="back-button"
-            type="button"
-            value="&laquo; Back to results"
-          />
-        </Link>
-        <Link to={"/postreview/" + facility.facilityName}>
-          <input
-            className="write-button"
-            type="button"
-            value="Review facility &raquo;"
-          />
-        </Link>
-
+        <div className="profile-nav-buttons">
+          <Link className="profile-b" to={"/facilitysearchresult/" + facility.postcode}>
+            <input
+              className="b b-accent b-sm"
+              type="button"
+              value="&laquo; Back to results"
+            />
+          </Link>
+          <Link className="profile-b" to={"/postreview/" + facility.facilityName}>
+            <input
+              className="b b-primary b-sm"
+              type="button"
+              value="Review facility &raquo;"
+            />
+          </Link>
+        </div>
         <div className="row">
           <div className="profile-body">
-            <div className="profile-review-container">
-              <div className="profile-details-left">
+            <div className="profile-review-container row">
+              <div className="col-lg-6 col-md-12">
+                <div className="profile-details-left">
+                  <h1 className="card-title">Benetas Brunswick</h1>
+                    <div className="profile-rate">
+                      <div>
+                        {facility.overallScore >= 0 && facility.overallScore <= 0.6
+                          ? loadIcon({ id: 11 })
+                          : facility.overallScore > 0.6 &&
+                            facility.overallScore <= 1.4
+                          ? loadIcon({ id: 10 })
+                          : facility.overallScore >= 1.4 &&
+                            facility.overallScore <= 2.4
+                          ? loadIcon({ id: 9 })
+                          : facility.overallScore > 2.4 &&
+                            facility.overallScore <= 3.4
+                          ? loadIcon({ id: 8 })
+                          : facility.overallScore > 3.4 &&
+                            facility.overallScore <= 4.4
+                          ? loadIcon({ id: 7 })
+                          : facility.overallScore > 4.4 &&
+                            facility.overallScore <= 5.4
+                          ? loadIcon({ id: 6 })
+                          : facility.overallScore > 5.4 &&
+                            facility.overallScore <= 6.4
+                          ? loadIcon({ id: 5 })
+                          : facility.overallScore > 6.4 &&
+                            facility.overallScore <= 7.4
+                          ? loadIcon({ id: 4 })
+                          : facility.overallScore > 7.4 &&
+                            facility.overallScore <= 8.4
+                          ? loadIcon({ id: 3 })
+                          : facility.overallScore > 8.4 &&
+                            facility.overallScore <= 9.4
+                          ? loadIcon({ id: 2 })
+                          : facility.overallScore > 9.4 &&
+                            facility.overallScore <= 10
+                          ? loadIcon({ id: 1 })
+                          : loadIcon({ id: 11 })}
+                      </div>
+                    </div>
+                    <p>
+                      <b>Overall Rating: </b>
+                      {facility.overallScore / 2} /5{" "}
+                      <i>({facility.totalNumberOfReviews} reviews)</i>
+                    </p>
+                    <h6>
+                      {facility.street}
+                      <br></br>
+                      {facility.suburbName}, {facility.postcode}
+                    </h6>
+                    <p className="profile-text">
+                      <i className="information-icon fa-solid fa-circle-info"></i>
+                      {facility.description}
+                      <br></br>
+                      <i className="information-icon fa-solid fa-globe"></i>
+                      <a href="#">
+                        https://aged-care-review-app.azurewebsites.net/
+                      </a>
+                    </p>
+                  </div>
+                </div>
+              <div className="col-lg-6 col-md-12 carousel-col">
                 <Carousel>
                   <Carousel.Item>
                     <img
@@ -169,64 +231,7 @@ export class FacilityProfile extends Component {
                     />
                   </Carousel.Item>
                 </Carousel>
-                <h1 className="card-title">Benetas Brunswick</h1>
-                <div className="profile-rate">
-                  <div>
-                    {facility.overallScore >= 0 && facility.overallScore <= 0.6
-                      ? loadIcon({ id: 11 })
-                      : facility.overallScore > 0.6 &&
-                        facility.overallScore <= 1.4
-                      ? loadIcon({ id: 10 })
-                      : facility.overallScore >= 1.4 &&
-                        facility.overallScore <= 2.4
-                      ? loadIcon({ id: 9 })
-                      : facility.overallScore > 2.4 &&
-                        facility.overallScore <= 3.4
-                      ? loadIcon({ id: 8 })
-                      : facility.overallScore > 3.4 &&
-                        facility.overallScore <= 4.4
-                      ? loadIcon({ id: 7 })
-                      : facility.overallScore > 4.4 &&
-                        facility.overallScore <= 5.4
-                      ? loadIcon({ id: 6 })
-                      : facility.overallScore > 5.4 &&
-                        facility.overallScore <= 6.4
-                      ? loadIcon({ id: 5 })
-                      : facility.overallScore > 6.4 &&
-                        facility.overallScore <= 7.4
-                      ? loadIcon({ id: 4 })
-                      : facility.overallScore > 7.4 &&
-                        facility.overallScore <= 8.4
-                      ? loadIcon({ id: 3 })
-                      : facility.overallScore > 8.4 &&
-                        facility.overallScore <= 9.4
-                      ? loadIcon({ id: 2 })
-                      : facility.overallScore > 9.4 &&
-                        facility.overallScore <= 10
-                      ? loadIcon({ id: 1 })
-                      : loadIcon({ id: 11 })}
-                  </div>
                 </div>
-                <p>
-                  <b>Overall Rating: </b>
-                  {facility.overallScore / 2} /5{" "}
-                  <i>({facility.totalNumberOfReviews} reviews)</i>
-                </p>
-                <h6>
-                  {facility.street}
-                  <br></br>
-                  {facility.suburbName}, {facility.postcode}
-                </h6>
-                <p className="profile-text">
-                  <i className="information-icon fa-solid fa-circle-info"></i>
-                  {facility.description}
-                  <br></br>
-                  <i className="information-icon fa-solid fa-globe"></i>
-                  <a href="#">
-                    https://aged-care-review-app.azurewebsites.net/
-                  </a>
-                </p>
-              </div>
             </div>
           </div>
 
@@ -244,13 +249,13 @@ export class FacilityProfile extends Component {
               <hr style={{ marginTop: "20px", marginBottom: "30px" }} />
               <div className="criteria-box">
                 <div className="row">
-                  <div className="side">
+                  <div className="side col-3">
                     <div>
                       <i className="category-icon fa-solid fa-hand-holding-medical" />
                       Care
                     </div>
                   </div>
-                  <div className="middle">
+                  <div className="middle col-6">
                     <div className="bar-container">
                       <div
                         className="bar-score"
@@ -289,7 +294,7 @@ export class FacilityProfile extends Component {
                       ></div>
                     </div>
                   </div>
-                  <div className="side right">
+                  <div className="side right col-3">
                     <div>
                       {facility.qualityOfCareScore}{" "}
                       <em>({facility.totalNumberOfReviews})</em>
@@ -297,13 +302,13 @@ export class FacilityProfile extends Component {
                   </div>
                   <hr style={{ marginBottom: "30px" }} />
                   <div></div>
-                  <div className="side">
+                  <div className="side col-3">
                     <div>
                       <i className="category-icon fa-solid fa-utensils" />
                       Food
                     </div>
                   </div>
-                  <div className="middle">
+                  <div className="middle col-6">
                     <div className="bar-container">
                       <div
                         className="bar-score"
@@ -334,20 +339,20 @@ export class FacilityProfile extends Component {
                       ></div>
                     </div>
                   </div>
-                  <div className="side right">
+                  <div className="side right col-3">
                     <div>
                       {facility.foodScore}{" "}
                       <em>({facility.totalNumberOfReviews})</em>
                     </div>
                   </div>
                   <hr style={{ marginBottom: "30px" }} />
-                  <div className="side">
+                  <div className="side col-3">
                     <div>
                       <i className="category-icon fa-solid fa-couch" />
                       Amenities
                     </div>
                   </div>
-                  <div className="middle">
+                  <div className="middle col-6">
                     <div className="bar-container">
                       <div
                         className="bar-score"
@@ -386,20 +391,20 @@ export class FacilityProfile extends Component {
                       ></div>
                     </div>
                   </div>
-                  <div className="side right">
+                  <div className="side right col-3">
                     <div>
                       {facility.amenitiesScore}{" "}
                       <em>({facility.totalNumberOfReviews})</em>
                     </div>
                   </div>
                   <hr style={{ marginBottom: "30px" }} />
-                  <div className="side">
+                  <div className="side col-3">
                     <div>
                       <i className="category-icon fa-solid fa-people-group" />
                       Staff
                     </div>
                   </div>
-                  <div className="middle">
+                  <div className="middle col-6">
                     <div className="bar-container">
                       <div
                         className="bar-score"
@@ -437,7 +442,7 @@ export class FacilityProfile extends Component {
                       ></div>
                     </div>
                   </div>
-                  <div className="side right">
+                  <div className="side right col-3">
                     <div>
                       {facility.staffScore}{" "}
                       <em>({facility.totalNumberOfReviews})</em>

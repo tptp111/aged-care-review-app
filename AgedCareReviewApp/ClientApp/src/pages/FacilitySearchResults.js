@@ -27,7 +27,7 @@ export class FacilitySearchResults extends Component {
                             <div className="card-body">
                                 <h1 className="card-title">{facility.facilityName}</h1>
                                 <p><b>Overall Rating: </b>
-                                    {facility.overallScore} / 5 <i>({facility.totalNumberOfReviews} reviews)</i></p>
+                                    {facility.overallScore / 2} / 5 <i>({facility.totalNumberOfReviews} reviews)</i></p>
                                 <hr/>
                                 <Link to={'/facilityprofile/' + facility.facilityName }>
                                 <button className="btn btn-primary text-right">View Facility</button>
