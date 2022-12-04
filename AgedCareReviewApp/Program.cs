@@ -25,7 +25,6 @@ builder.Services.AddIdentityServer()
 builder.Services.AddAuthentication()
     .AddIdentityServerJwt();
 
-// TOTO: DELETE
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 

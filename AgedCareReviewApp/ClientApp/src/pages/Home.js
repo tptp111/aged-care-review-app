@@ -70,13 +70,13 @@ export class Home extends Component {
             <img className='logo-img' src='/images/favicon.png' />
             <h2>Transparent Aged Care Reviews</h2>
             <h3>Search for an aged care facility to view their reviews and/or provide feedback</h3>
-            <div>
+            <div className='home-buttons'>
               <Link to="/Search">
                 <button className='b b-primary'>Search for a facility</button>
               </Link>
-              <Link to="/SignInOrRegister">
+              {/* <Link to="/SignInOrRegister">
                 <button className='b b-accent'>Sign in to leave a review</button>
-              </Link>
+              </Link> */}
             </div>
           </div>
           <div className='col-lg-7 col-sm-12 home-right-column'>

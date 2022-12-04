@@ -2,7 +2,6 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
-    /*width: 50%; */
 }
 
 #TOUText {
@@ -11,7 +10,8 @@
 }
 
 #TOU-h1 {
-    text-align: left;
+    text-align: center;
+    margin-top: 20px;
     margin-left: 30px;
     color: #0d0d66;
 }

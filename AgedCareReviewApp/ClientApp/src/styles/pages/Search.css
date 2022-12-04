@@ -40,20 +40,20 @@
 
 .search-right-column {
     margin: auto;
+    padding: 0;
 }
 
 .search-main {
-    position: center;
-    height: 59px;
-    left: 42.24%;
-    right: 26.3%;
-    top: calc(50% - 59px/2 - 93.5px);
-    margin-bottom: 30%;
-
+    margin: auto;
+    width: 60%;
     font-style: normal;
     font-weight: 700;
     font-size: 32px;
     line-height: 59px;
+}
+
+.css-1pnfs2z-MuiAutocomplete-root {
+    width: 100% !important;
 }
 
 .search-secondary {
@@ -130,6 +130,7 @@
 }
 
 .search-left-column {
+    padding: 0;
     display: flex;
     flex-direction: column;
 }

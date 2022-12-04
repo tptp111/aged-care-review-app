@@ -3,7 +3,6 @@ import "../styles/pages/PostReview.css";
 import { Link, Navigate } from "react-router-dom";
 import { SlideBar } from "../components/SlideBar";
 import { Hint } from "../components/Hint";
-import authService from "../components/api-authorization/AuthorizeService";
 
 export class PostReview extends Component {
   constructor(props) {
@@ -11,7 +10,6 @@ export class PostReview extends Component {
 
     this.state = {
       navigate: false,
-      userEmail: "",
       popoverOpen: false,
       facilityName: "Melbourne Aged Care",
       reviewScores: [
@@ -40,29 +38,21 @@ export class PostReview extends Component {
           value: 0,
         },
       ],
+      userDetails: [
+        "",
+        "",
+        "",
+        "",
+        "",
+      ],
       overallScore: 0,
       feedbackComments: "",
     };
 
+    this.handleUserDetailChange = this.handleUserDetailChange.bind(this);
     this.updateScore = this.updateScore.bind(this);
     this.handleCommentChange = this.handleCommentChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  componentDidMount() {
-    this._subscription = authService.subscribe(() =>
-      this.populateUserDetails()
-    );
-    this.populateUserDetails();
-  }
-
-  componentWillUnmount() {
-    authService.unsubscribe(this._subscription);
-  }
-
-  async populateUserDetails() {
-    const user = await Promise.all([authService.getUser()]);
-    this.state.userEmail = user[0].name;
   }
 
   updateScore(event) {
@@ -82,9 +72,12 @@ export class PostReview extends Component {
     this.state.feedbackComments = event.target.value;
   }
 
+  handleUserDetailChange(event) {
+    this.state.userDetails[event.target.id - 6] = event.target.value;
+  }
+
   async handleSubmit(event) {
     event.preventDefault();
-    const token = await authService.getAccessToken();
 
     const today = new Date();
     const date =
@@ -92,7 +85,12 @@ export class PostReview extends Component {
 
     let review = {
       id: 0,
-      userEmail: this.state.userEmail,
+      reviewValidated: false,
+      firstName: this.state.userDetails[0],
+      lastName: this.state.userDetails[1],
+      userEmail: this.state.userDetails[2],
+      medicareNumber: this.state.userDetails[3],
+      userType: this.state.userDetails[4],
       initialReviewDate: date,
       feedbackComments: this.state.feedbackComments,
       overallScore: this.state.overallScore,
@@ -107,11 +105,8 @@ export class PostReview extends Component {
 
     const response = await fetch("Review", {
       method: "POST",
-      headers: !token
-        ? {}
-        : {
+      headers: {
             "Content-type": "application/json",
-            Authorization: `Bearer ${token}`,
           },
       body: JSON.stringify(review),
     });
@@ -126,9 +121,9 @@ export class PostReview extends Component {
     return (
       <div className="rev-column">
         {nav && <Navigate to="/ReviewConfirmation" replace={true} />}
-        <h1 id="rev-h1-title"> Facility Review - {this.state.facilityName}</h1>
-        <h1 id="rev-h1">Instructions</h1>
-        <p id="rev-p">
+        <h1 className="rev-h1-title"> Facility Review - {this.state.facilityName}</h1>
+        <h1 className="rev-h1">Instructions</h1>
+        <p className="rev-p">
           Your review will consist of rating the facility performance and
           providing your comments in line with your experience. <br />
           <br />
@@ -148,20 +143,66 @@ export class PostReview extends Component {
           />{" "}
           for some more guidance on the questions.
         </p>
-
-        <h1 id="rev-h1">Facility Performance</h1>
-        <div className="rev-horizontal-line"> </div>
-        <p id="rev-p">
-          Please provide your ratings for the below on a scale from 0 to 10.{" "}
-          <br />
-          <br />
-          It is important you spend time thinking about each questions before
-          answering.
-        </p>
         <form className="review-form" onSubmit={this.handleSubmit}>
+          <h1 className="rev-h1">Your Details</h1>
           <div className="rating-container">
             <div className="rating-container-header">
-              <label form="temp" id="rev-comment-heading">
+              <label form="temp" className="rev-comment-heading">
+                Please tell us about yourself.
+              </label>
+              <div className="info">
+                <Hint title="Personal Data"
+                  content="This information is used to manually verify the legitimacy of your review. After your review is verified by our staff, it will be displayed on the facility profile page."
+                  placement="left"
+                  trigger="hover"
+                />
+              </div>
+            </div>
+            <div className="form-group">
+              <label className="rev-comment-heading" for={6}>First name</label>
+              <input type="text" className="form-control form-control-lg rev-form-input" id={6} placeholder="Enter your first name" onChange={this.handleUserDetailChange} required/>
+              <small id="firstNameHelp" className="form-text text-muted"></small>
+            </div>
+            <div className="form-group">
+              <label className="rev-comment-heading" for={7}>Last name</label>
+              <input type="text" className="form-control form-control-lg rev-form-input" id={7} placeholder="Enter your last name" onChange={this.handleUserDetailChange} required/>
+              <small id="firstNameHelp" className="form-text text-muted"></small>
+            </div>
+            <div className="form-group">
+              <label className="rev-comment-heading" for={8}>Email adress</label>
+              <input type="email" className="form-control form-control-lg rev-form-input" id={8} placeholder="Enter your email address" onChange={this.handleUserDetailChange} required/>
+              <small id="firstNameHelp" className="form-text text-muted"></small>
+            </div>
+            <div className="form-group">
+              <label className="rev-comment-heading" for={9}>Medicare number</label>
+              <input type="text" className="form-control form-control-lg rev-form-input" id={9} placeholder="Enter your medicare number" onChange={this.handleUserDetailChange} required/>
+              <small id="firstNameHelp" className="form-text text-muted"></small>
+            </div>
+            <div className="form-group">
+              <label className="rev-comment-heading" for={10}>Which of the following best described you?</label>
+              <select class="form-control form-control-lg rev-form-input" id={10} onChange={this.handleUserDetailChange} required>
+                <option>I am a current / past resident at this facility</option>
+                <option>I am a carer of a current / past resident at this facility</option>
+                <option>I am a current / past employee at this facility</option>
+                <option>Other</option>
+              </select>
+              <small id="firstNameHelp" className="form-text text-muted"></small>
+            </div>
+            <label form="temp" className="rev-comment-footer">
+                We use this information to verify your identity.
+              </label>
+          </div>
+          <h1 className="rev-h1">Facility Performance</h1>
+          <div className="rev-horizontal-line"> </div>
+          <p className="rev-p">
+            Please provide your ratings for the below on a scale from 0 to 10.{" "}
+            <br />
+            It is important you spend time thinking about each questions before
+            answering.
+          </p>
+          <div className="rating-container">
+            <div className="rating-container-header">
+              <label form="temp" className="rev-comment-heading">
                 How would you rate the <strong>quality of care</strong> at{" "}
                 {this.state.facilityName}?
               </label>
@@ -184,7 +225,7 @@ export class PostReview extends Component {
 
           <div className="rating-container">
             <div className="rating-container-header">
-              <label form="temp" id="rev-comment-heading">
+              <label form="temp" className="rev-comment-heading">
                 How would you rate the <strong>food</strong> at{" "}
                 {this.state.facilityName}?
               </label>
@@ -210,7 +251,7 @@ export class PostReview extends Component {
 
           <div className="rating-container">
             <div className="rating-container-header">
-              <label form="temp" id="rev-comment-heading">
+              <label form="temp" className="rev-comment-heading">
                 How would you rate the <strong>physical facilities</strong> at{" "}
                 {this.state.facilityName}?
               </label>
@@ -237,7 +278,7 @@ export class PostReview extends Component {
 
           <div className="rating-container">
             <div className="rating-container-header">
-              <label form="temp" id="rev-comment-heading">
+              <label form="temp" className="rev-comment-heading">
                 How would you rate the <strong>quality of staff</strong> at{" "}
                 {this.state.facilityName}?
               </label>
@@ -267,7 +308,7 @@ export class PostReview extends Component {
 
           <div className="rating-container">
             <div className="rating-container-header">
-              <label form="temp" id="rev-comment-heading">
+              <label form="temp" className="rev-comment-heading">
                 How would you rate the quality of the{" "}
                 <strong>activities program</strong> at {this.state.facilityName}
                 ?
@@ -296,7 +337,7 @@ export class PostReview extends Component {
 
           <div className="rating-container">
             <div className="rating-container-header">
-              <label form="temp" id="rev-comment-heading">
+              <label form="temp" className="rev-comment-heading">
                 Do you feel <strong>safe</strong> at {this.state.facilityName}?
               </label>
               <div className="info">
@@ -324,23 +365,23 @@ export class PostReview extends Component {
             />
           </div>
 
-          <h1 id="rev-h1">Overall Rating</h1>
+          <h1 className="rev-h1">Overall Rating</h1>
 
           <div className="rating-container">
-            <p id="rev-comment-heading">
-              We've determined the overall rating below based on your answers.
+            <p className="rev-comment-heading">
+              We've determined this overall rating below based on your answers.
             </p>
-            <h1>Overall Rating: {this.state.overallScore} / 10</h1>
+            <h1 className="rev-overall">Overall Rating: {this.state.overallScore} / 10</h1>
           </div>
 
-          <h1 id="rev-h1">Additional Comments</h1>
+          <h1 className="rev-h1">Additional Comments</h1>
           <div className="rev-horizontal-line"></div>
           <div className="rating-container">
-            <label id="rev-comment-heading">
+            <label className="rev-comment-heading">
               How would you describe your experience at this aged care facility?
             </label>
             <textarea
-              id="review-comments-input"
+              className="review-comments-input"
               name="review-comments"
               placeholder="Please enter your comments here..."
               onChange={this.handleCommentChange}
@@ -348,8 +389,7 @@ export class PostReview extends Component {
             ></textarea>
           </div>
           <input
-            className="b b-primary"
-            id="rev-submit-button"
+            className="b b-primary rev-submit-button"
             type="submit"
             value="Submit Review"
           />

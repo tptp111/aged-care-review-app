@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AgedCareReviewApp.Controllers;
 
-[Authorize]
 [ApiController]
 [Route("[controller]")]
 public class ReviewController

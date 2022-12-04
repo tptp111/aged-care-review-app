@@ -27,5 +27,13 @@ public class Review
     [Required]
     public string FacilityName  { get; set; }
     [Required]
+    public string FirstName { get; set; }
+    [Required]
+    public string LastName { get; set; }
+    [Required]
     public string UserEmail { get; set; }
+    [Required]
+    public string MedicareNumber { get; set; }
+    [Required]
+    public string UserType { get; set; }
 }
